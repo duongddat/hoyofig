@@ -1,0 +1,27 @@
+{
+  "name": "hoyofig",
+  "version": "1.0.0",
+  "description": "HoYoVer Figure",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --inspect src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duongddat/HoYoFIG.git"
+  },
+  "keywords": [
+    "HoyoVer",
+    "Figure"
+  ],
+  "author": "X.A.D",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/duongddat/HoYoFIG/issues"
+  },
+  "homepage": "https://github.com/duongddat/HoYoFIG#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
