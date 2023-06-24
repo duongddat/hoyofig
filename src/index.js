@@ -11,10 +11,12 @@ const hostname = "localhost";
 //Connect to MongoDB
 db.connect();
 
+//Static files
+app.use(express.static(path.join(__dirname, 'public')));
+
 //View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
 
 //routes
 app.use('/', home);

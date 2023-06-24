@@ -1,5 +1,5 @@
 const getHomepage = (req, res) => {
-    res.send('Home page');
+    res.render('home.ejs');
 }
 
 const getTest = (req, res) => {
