@@ -3,6 +3,7 @@ const path = require('path');
 
 const db = require('./config/db');
 const home = require('./routes/index.js');
+const category = require('./routes/adminCategory');
 
 const app = express();
 const port = 8080;
@@ -20,6 +21,7 @@ app.set('view engine', 'ejs');
 
 //routes
 app.use('/', home);
+app.use('/admin', category);
 
 app.listen(port, hostname, () => {
     console.log(`Example app listening on port ${port}`)
