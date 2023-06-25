@@ -27,7 +27,7 @@ const postCategoryAdd = (req, res, next) => {
             .then(cat => {
                 if (cat) {
                     req.flash('danger', 'Category slug exists, choose another.');
-                    res.render('admin/createCategory.ejs')
+                    res.render('admin/createCategory.ejs');
                 } else {
                     const category = new Category({ title, slug });
                     return category.save()

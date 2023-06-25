@@ -1,0 +1,17 @@
+<%- include('../layout/header.ejs'); -%>
+    <div class="container form-container">
+        <div class="title-header">
+            <h4>Add your category</h4>
+        </div>
+        <a href="/admin/categories" class="btn btn-default mt-4 mb-4">Back to all categories</a>
+        <form method="POST" action="/admin/categories/add-category">
+            <div class="ql-container form-group">
+                <input type="text" name="title" placeholder=" " class="ql-input" />
+                <label html="title" class="ql-label" for="title">Post category now~</label>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <img src="https://upload-os-bbs.hoyolab.com/upload/2021/12/31/82234308/385976a66849c375ff96f72e0b362ccc_6386540267008993675.png?x-oss-process=image%2Fresize%2Cs_1000%2Fquality%2Cq_80%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp"
+            alt="" class="img-form" />
+    </div>
+    <%- include('../layout/footer'); -%>
