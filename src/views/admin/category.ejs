@@ -1,0 +1,30 @@
+<%- include('../layout/header.ejs'); -%>
+    <div class="container form-container">
+        <div class="title-header">
+            <h4>Add your category</h4>
+        </div>
+        <a href="/admin/categories/add-category" class="btn btn-default mt-4 mb-4">Add a category</a>
+        <table class="table table-hover sorting">
+            <thead>
+                <tr class="home">
+                    <th scope="col">Category</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% categories.map(category=> { %>
+                    <tr>
+                        <td>
+                            <%= category.title %>
+                        </td>
+                        <td><a href="/admin/categories/edit-category/<%= category._id %>">Edit</a></td>
+                        <td><a class="confirm-deletion"
+                                href="/admin/categories/delete-category/<%= category._id %>">Delete</a>
+                        </td>
+                    </tr>
+                    <%});%>
+            </tbody>
+        </table>
+    </div>
+    <%- include('../layout/footer'); -%>

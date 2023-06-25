@@ -50,13 +50,21 @@
                             Hi, user!
                         </a>
                         <div class="dropdown-menu mr-auto" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/">Action</a>
+                            <a class="dropdown-item" href="/admin/categories">Categories</a>
                             <a class="dropdown-item" href="/">Another action</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="/">Something else here</a>
+                            <a class="dropdown-item" href="/">Login In</a>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <%- messages('messages', locals) %>
+        <% if (errors) { %>
+            <% errors.forEach(function(error) { %>
+                <div class="mt-4 alert alert-danger">
+                    <%= error.msg %>
+                </div>
+                <% }); %>
+                    <% } %>

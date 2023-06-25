@@ -1,6 +1,5 @@
-import mongoose from 'mongoose';
-const slug = require('mongoose-slug-generator');
-const Schema = mongoose;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const CategorySchema = new Schema({
     title: {
@@ -9,12 +8,7 @@ const CategorySchema = new Schema({
     },
     slug: {
         type: String,
-        slug: 'title',
-        unique: true
     }
 });
-
-// Add plugins
-mongoose.plugin(slug);
 
 module.exports = mongoose.model('Category', CategorySchema);
