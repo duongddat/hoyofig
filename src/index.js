@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const methodOverride = require('method-override')
 const flash = require('connect-flash');
 const bodyParser = require('body-parser');
 const session = require('express-session');
@@ -21,6 +22,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 //View engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+//Overrides methods in express
+app.use(methodOverride('_method'));
 
 //Body Parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
