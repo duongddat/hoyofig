@@ -103,10 +103,20 @@ const putCategoryEdit = (req, res, next) => {
     }
 };
 
+//[DELETE] /categories/delete-category/:id
+const deleteCategory = (req, res, next) => {
+    Category.deleteOne({ _id: req.params.id })
+        .then(() => {
+            res.redirect('back');
+        })
+        .catch(next);
+};
+
 module.exports = {
     getCategorypage,
     getCategoryAdd,
     postCategoryAdd,
     getCategoryEdit,
     putCategoryEdit,
+    deleteCategory,
 }

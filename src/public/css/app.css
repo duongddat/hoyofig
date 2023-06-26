@@ -110,6 +110,10 @@ body {
   width: 120px;
 }
 
+.img-modal {
+  width: 120px;
+}
+
 .ql-container {
   position: relative;
 }
@@ -141,6 +145,19 @@ body {
   color: #999;
   pointer-events: none;
   transition: 0.2s ease;
+}
+
+.none-item {
+  align-items: center;
+}
+.none-item img {
+  height: 150px;
+  width: 150px;
+  margin-bottom: 8px;
+}
+.none-item span {
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .fui-footer-3 {
