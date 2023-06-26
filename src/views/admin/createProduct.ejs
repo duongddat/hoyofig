@@ -1,0 +1,39 @@
+<%- include('../layout/header.ejs'); -%>
+    <div class="container form-container">
+        <div class="title-header">
+            <h4>Add your product</h4>
+        </div>
+        <a href="/admin/products" class="btn btn-default mt-4 mb-4">Back to all products</a>
+        <form method="POST" action="/admin/products/add-product" enctype="multipart/form-data">
+            <div class=" form-group">
+                <label for="">Title</label>
+                <input type="text" class="form-control" name="title" placeholder="Put your product's title now~">
+            </div>
+            <div class="form-group">
+                <label for="">Description</label>
+                <textarea name="desc" class="form-control" cols="30" rows="10"
+                    placeholder="Put your product's description now~"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="">Category</label>
+                <select name="category" class="form-control">
+                    <% categories.map(category=> {%>
+                        <option value="<%= category.slug %>">
+                            <%= category.title %>
+                        </option>
+                        <%});%>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Price</label>
+                <input type="text" class="form-control" name="price" placeholder="Put your product's price now~">
+            </div>
+            <div class="form-group">
+                <label for="">Image</label>
+                <input type="file" class="form-control" name="image" id="image">
+                <img src=" #" id="imgPreview" alt="">
+            </div>
+            <button type="submit" class="btn btn-default mt-4 mb-4">Submit</button>
+        </form>
+    </div>
+    <%- include('../layout/footer'); -%>

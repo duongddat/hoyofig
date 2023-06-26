@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <nav class="header navbar navbar-expand-lg navbar-light">
+    <nav class="header navbar navbar-expand-lg navbar-light fixed">
         <div class="container">
             <a class="navbar-brand header-logo" href="/">
                 <img src="https://img-os-static.hoyolab.com/communityWeb/upload/1e61d2b42b2755bb200a24c5d7b77d20.png"
@@ -60,6 +60,7 @@
             </div>
         </div>
     </nav>
+    <div class="pt-65"></div>
     <%- messages('messages', locals) %>
         <% if (errors) { %>
             <% errors.forEach(function(error) { %>
