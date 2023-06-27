@@ -4,7 +4,8 @@
             <h4>Edit your product</h4>
         </div>
         <a href="/admin/products" class="btn btn-default mt-4 mb-4">Back to all products</a>
-        <form method="POST" class="pb-4" action="/admin/products/edit-product/<%= id %>?_method=PUT">
+        <form method="POST" class="pb-4" action="/admin/products/edit-product/<%= id %>?_method=PUT"
+            enctype="multipart/form-data">
             <div class="form-group">
                 <label for="">Title</label>
                 <input type="text" class="form-control" name="title" value="<%= title %>"
@@ -41,13 +42,15 @@
                 <p>
                     <% if (image=="" ) { %>
                         <img class="image" src="/img/none-image.jpg" alt="">
+                        <input hidden name="currentImage" value="">
                         <% } else {%>
                             <img class="image" src="/img/<%= image %>" alt="">
+                            <input hidden name="currentImage" value="<%= image %>">
                             <% } %>
                 </p>
             </div>
             <div class="form-group">
-                <label for="">Upload image</label>
+                <label for="">Upload Image</label>
                 <input type="file" class="form-control" name="image" id="image">
                 <img src="/img/none-image.jpg" class="image mt-4" id="imgPreview" alt="">
             </div>

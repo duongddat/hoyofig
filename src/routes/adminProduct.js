@@ -8,7 +8,8 @@ const {
     getProductpage,
     getProductAdd,
     postProductAdd,
-    getPorductEdit
+    getPorductEdit,
+    putProductEdit
 } = require('../app/controllers/productController');
 
 
@@ -35,7 +36,12 @@ router.post('/products/add-product',
     body('price').isDecimal().withMessage('Price must have a value.'),
     postProductAdd);
 router.get('/products/edit-product/:id', getPorductEdit);
-// router.put('/categories/edit-category/:id', body('title').notEmpty().withMessage('Title must have a value.'), putCategoryEdit);
+router.put('/products/edit-product/:id',
+    upload.single("image"),
+    body('title').notEmpty().withMessage('Title must have a value.'),
+    body('desc').notEmpty().withMessage('Description must have a value.'),
+    body('price').isDecimal().withMessage('Price must have a value.'),
+    putProductEdit);
 // router.delete('/categories/delete-category/:id', deleteCategory);
 
 

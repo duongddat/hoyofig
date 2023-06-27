@@ -1,8 +1,10 @@
+const fs = require('fs');
 const { validationResult } = require('express-validator');
 
 const Category = require('../models/category');
 const Product = require('../models/product');
-const product = require('../models/product');
+const { response } = require('express');
+
 
 const getProductpage = (req, res, next) => {
     Product.find({})
@@ -92,9 +94,73 @@ const getPorductEdit = (req, res, next) => {
 
 }
 
+const putProductEdit = (req, res, next) => {
+    const id = req.params.id;
+    const title = req.body.title;
+    const slug = title.replace(/\s+/g, '-').toLowerCase();
+    const desc = req.body.desc;
+    const category = req.body.category;
+    const price = req.body.price;
+    const currentImage = req.body.currentImage;
+    const image = req.file ? req.file.filename : "";
+    let newImage = "";
+
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+        Product.findOne({ slug: slug, _id: { $ne: id } })
+            .then((product) => {
+                if (product) {
+                    req.flash('danger', 'Product title exists, choose another.');
+                    res.redirect('/admin/products/edit-product/' + id);
+                } else {
+                    if (image !== "") {
+                        newImage = image;
+                        try {
+                            fs.unlinkSync("./src/public/img/" + currentImage);
+                        } catch (errors) {
+                            console.log(errors);
+                        }
+                    } else {
+                        newImage = currentImage;
+                    }
+
+                    Product.updateOne({ _id: req.params.id }, {
+                        title: title,
+                        slug: slug,
+                        desc: desc,
+                        category: category,
+                        price: price,
+                        image: newImage
+                    })
+                        .then(() => {
+                            res.redirect('/admin/products');
+                        })
+                        .catch(next);
+                }
+            })
+            .catch(next);
+    } else {
+        Category.find({})
+            .then(categories => {
+                res.render('admin/editProduct.ejs', {
+                    errors: errors.array(),
+                    id: id,
+                    slug: slug,
+                    desc: desc,
+                    category: category,
+                    categories: categories,
+                    price: price,
+                    image: currentImage
+                });
+            })
+            .catch(next);
+    }
+}
+
 module.exports = {
     getProductpage,
     getProductAdd,
     postProductAdd,
     getPorductEdit,
+    putProductEdit,
 }
