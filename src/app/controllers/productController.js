@@ -4,8 +4,12 @@ const Category = require('../models/category');
 const Product = require('../models/product');
 const product = require('../models/product');
 
-const getProductpage = (req, res) => {
-    res.render('home.ejs');
+const getProductpage = (req, res, next) => {
+    Product.find({})
+        .then((products) => {
+            res.render('admin/product.ejs', { products: products });
+        })
+        .catch(next);
 }
 
 const getProductAdd = (req, res, next) => {
@@ -34,7 +38,7 @@ const postProductAdd = (req, res, next) => {
                     req.flash('danger', 'Product title exists, choose another.');
                     Category.find({})
                         .then((categories) => {
-                            res.render('admin/add_product.ejs', {
+                            res.render('admin/createProduct.ejs', {
                                 categories: categories
                             });
                         })
@@ -68,8 +72,29 @@ const postProductAdd = (req, res, next) => {
     }
 }
 
+const getPorductEdit = (req, res, next) => {
+    const category = Category.find({})
+    const product = Product.findById(req.params.id);
+
+    Promise.all([category, product])
+        .then(([cat, p]) => {
+            res.render('admin/editProduct.ejs', {
+                id: p._id,
+                title: p.title,
+                desc: p.desc,
+                categories: cat,
+                category: p.category,
+                price: parseFloat(p.price).toFixed(2),
+                image: p.image,
+            })
+        })
+        .catch(next);
+
+}
+
 module.exports = {
     getProductpage,
     getProductAdd,
     postProductAdd,
+    getPorductEdit,
 }

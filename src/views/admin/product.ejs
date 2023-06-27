@@ -1,27 +1,43 @@
 <%- include('../layout/header.ejs'); -%>
     <div class="container form-container">
         <div class="title-header">
-            <h4>Manage your category</h4>
+            <h4>Manage your product</h4>
         </div>
-        <a href="/admin/categories/add-category" class="btn btn-default mt-4 mb-4">Add a category</a>
-        <table class="table table-hover">
+        <a href="/admin/products/add-product" class="btn btn-default mt-4 mb-4">Add a product</a>
+        <table class="table table-hover alignmiddle">
             <thead>
                 <tr class="home">
+                    <th scope="col">Product</th>
+                    <th scope="col">Price</th>
                     <th scope="col">Category</th>
+                    <th scope="col">Product Image</th>
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody>
-                <% if( categories.length> 0 ) { %>
-                    <% categories.map(category=> { %>
+                <% if( products.length> 0 ) { %>
+                    <% products.map(product=> { %>
                         <tr>
                             <td>
-                                <%= category.title %>
+                                <%= product.title %>
                             </td>
-                            <td><a href="/admin/categories/edit-category/<%= category._id %>">Edit</a></td>
-                            <td><a class="confirm-deletion" data-id="<%=category._id%>" data-toggle="modal"
-                                    data-target="#delete-category-modal" href="">Delete</a>
+                            <td>
+                                $<%= parseFloat(product.price).toFixed(2) %>
+                            </td>
+                            <td>
+                                <%= product.category %>
+                            </td>
+                            <td>
+                                <% if (product.image=="" ) { %>
+                                    <img class="image" src="/img/none-image.jpg">
+                                    <% } else {%>
+                                        <img class="image" src="/img/<%= product.image %>">
+                                        <% }%>
+                            </td>
+                            <td><a href="/admin/products/edit-product/<%= product._id %>">Edit</a></td>
+                            <td><a class="confirm-deletion" data-id="<%=product._id%>" data-toggle="modal"
+                                    data-target="#delete-product-modal" href="">Delete</a>
                             </td>
                         </tr>
                         <%})%>
@@ -30,7 +46,7 @@
                                     <td colspan="3" class="text-center">
                                         <div class="d-flex flex-column none-item">
                                             <img src='https://www.hoyolab.com/_nuxt/img/56a30a4.png' alt='' />
-                                            <span>You have not posted any categories yet~</span>
+                                            <span>You have not posted any products yet~</span>
                                         </div>
                                     </td>
                                 </tr>
@@ -42,24 +58,24 @@
         </div>
     </div>
 
-    <!-- Config delete category -->
-    <div class="modal fade" id="delete-category-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Config delete product -->
+    <div class="modal fade" id="delete-product-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Category?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Delete Product?</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to delete this catgory?</p>
+                    <p>Are you sure you want to delete this product?</p>
                     <img src="https://upload-os-bbs.hoyolab.com/upload/2020/01/17/1036052/b06ecac6607336e7292f75a94b6d2351_2737180836044039850.png?x-oss-process=image/resize,s_1000/quality,q_80/auto-orient,0/interlace,1/format,png"
                         alt="" class="img-modal" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button id="btn-delete-category" type="button" class="btn btn-primary">Delete</button>
+                    <button id="btn-delete-product" type="button" class="btn btn-primary">Delete</button>
                 </div>
             </div>
         </div>
@@ -67,7 +83,7 @@
 
     <!-- Delete hidden form  -->
     <!-- Action form hidden in JS -->
-    <form name="delete-category-form" method="POST">
+    <form name="delete-product-form" method="POST">
     </form>
-    <script src="/js/category.js"></script>
+
     <%- include('../layout/footer'); -%>

@@ -1,0 +1,58 @@
+<%- include('../layout/header.ejs'); -%>
+    <div class="container form-container">
+        <div class="title-header">
+            <h4>Edit your product</h4>
+        </div>
+        <a href="/admin/products" class="btn btn-default mt-4 mb-4">Back to all products</a>
+        <form method="POST" class="pb-4" action="/admin/products/edit-product/<%= id %>?_method=PUT">
+            <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" class="form-control" name="title" value="<%= title %>"
+                    placeholder="Put your product's title now~">
+            </div>
+
+            <div class="form-group">
+                <label for="">Description</label>
+                <textarea name="desc" class="form-control" cols="30" rows="10"
+                    placeholder="Put your product's description now~"><%= desc %></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="">Category</label>
+                <select name="category" class="form-control">
+                    <% categories.map((cat)=>{ %>
+                        <option value="<%= cat.slug %>" <% if (cat.slug===category) { %>
+                            selected="selected"
+                            <% } %>
+                                ><%= cat.title %>
+                        </option>
+                        <% }); %>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="">Price</label>
+                <input type="text" class="form-control" name="price" value="<%= price %>"
+                    placeholder="Put your product's price now~">
+            </div>
+
+            <div class="form-group">
+                <label for="">Current Image</label>
+                <p>
+                    <% if (image=="" ) { %>
+                        <img class="image" src="/img/none-image.jpg" alt="">
+                        <% } else {%>
+                            <img class="image" src="/img/<%= image %>" alt="">
+                            <% } %>
+                </p>
+            </div>
+            <div class="form-group">
+                <label for="">Upload image</label>
+                <input type="file" class="form-control" name="image" id="image">
+                <img src="/img/none-image.jpg" class="image mt-4" id="imgPreview" alt="">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+    <script src="/js/image.js"></script>
+    <%- include('../layout/footer'); -%>
