@@ -145,6 +145,7 @@ const putProductEdit = (req, res, next) => {
                 res.render('admin/editProduct.ejs', {
                     errors: errors.array(),
                     id: id,
+                    title: title,
                     slug: slug,
                     desc: desc,
                     category: category,
