@@ -43,6 +43,29 @@ body {
   border-radius: 24px;
 }
 
+.link {
+  position: relative;
+  margin-right: 25px;
+}
+.link .notification {
+  position: absolute;
+  top: -6px;
+  right: -16px;
+  padding: 0 6px;
+  border-radius: 50%;
+  font-size: 12px;
+  background-color: #e1e7ff;
+}
+.link:hover .icon,
+.link:hover .notification {
+  color: #657ef8;
+}
+
+.icon {
+  font-size: 16px;
+  color: #8592a3;
+}
+
 .btn {
   display: inline-block;
   border: none;

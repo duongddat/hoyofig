@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { body, validationResult } = require('express-validator');
+const { body } = require('express-validator');
 const multer = require('multer');
 
 
@@ -9,7 +9,8 @@ const {
     getProductAdd,
     postProductAdd,
     getPorductEdit,
-    putProductEdit
+    putProductEdit,
+    deleteProductDestroy,
 } = require('../app/controllers/productController');
 
 
@@ -42,7 +43,7 @@ router.put('/products/edit-product/:id',
     body('desc').notEmpty().withMessage('Description must have a value.'),
     body('price').isDecimal().withMessage('Price must have a value.'),
     putProductEdit);
-// router.delete('/categories/delete-category/:id', deleteCategory);
+router.delete('/products/delete-product/:id', deleteProductDestroy);
 
 
 module.exports = router; //export default 

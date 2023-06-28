@@ -3,13 +3,19 @@ const { validationResult } = require('express-validator');
 
 const Category = require('../models/category');
 const Product = require('../models/product');
-const { response } = require('express');
+const product = require('../models/product');
 
 
 const getProductpage = (req, res, next) => {
-    Product.find({})
-        .then((products) => {
-            res.render('admin/product.ejs', { products: products });
+    const productFind = Product.find({});
+    const countDelete = Product.countDocumentsDeleted({});
+
+    Promise.all([productFind, countDelete])
+        .then(([products, count]) => {
+            res.render('admin/product.ejs', {
+                products: products,
+                count: count,
+            });
         })
         .catch(next);
 }
@@ -55,7 +61,7 @@ const postProductAdd = (req, res, next) => {
                         image: image
                     });
                     return product.save()
-                        .then(() => res.redirect('back'))
+                        .then(() => res.redirect('/admin/products'))
                         .catch(next);
 
                 }
@@ -158,10 +164,29 @@ const putProductEdit = (req, res, next) => {
     }
 }
 
+const deleteProductDestroy = (req, res, next) => {
+    const productFind = Product.findById(req.params.id);
+    const productDeleteOne = Product.deleteOne({ _id: req.params.id });
+
+    Promise.all([productFind, productDeleteOne])
+        .then(([product]) => {
+            if (product.image !== '') {
+                try {
+                    fs.unlinkSync("./src/public/img/" + product.image);
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+            res.redirect('back');
+        })
+        .catch(next);
+}
+
 module.exports = {
     getProductpage,
     getProductAdd,
     postProductAdd,
     getPorductEdit,
     putProductEdit,
+    deleteProductDestroy,
 }

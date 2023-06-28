@@ -11,12 +11,12 @@ document.addEventListener('DOMContentLoaded', function () {
         var button = $(event.relatedTarget);
         productId = button.data('id');
 
-        // console.log(productId);
+        console.log(productId);
     });
 
     // When delete course btn clicked
-    btnDeleteProduct.onclick = function () {
-        deleteForm.action = '/admin/products/delete-product/' + productId + '?_method=DELETE';
-        deleteForm.submit();
-    }
+    // btnDeleteProduct.onclick = function () {
+    //     deleteForm.action = '/admin/products/delete-product/' + productId + '?_method=DELETE';
+    //     deleteForm.submit();
+    // }
 });

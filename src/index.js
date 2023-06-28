@@ -9,6 +9,7 @@ const db = require('./config/db');
 const home = require('./routes/index.js');
 const category = require('./routes/adminCategory');
 const product = require('./routes/adminProduct');
+const trash = require('./routes/trash');
 
 const app = express();
 const port = 8080;
@@ -54,6 +55,7 @@ app.use(session({
 app.use('/', home);
 app.use('/admin', category);
 app.use('/admin', product);
+app.use('/admin/trash', trash);
 
 app.listen(port, hostname, () => {
     console.log(`Example app listening on port ${port}`)

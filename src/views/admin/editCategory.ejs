@@ -3,7 +3,10 @@
         <div class="title-header">
             <h4>Edit your category</h4>
         </div>
-        <a href="/admin/categories" class="btn btn-default mt-4 mb-4">Back to all categories</a>
+        <a href="/admin/categories" class="btn btn-default mt-4 mb-4">
+            <i class="fa-solid fa-circle-chevron-left"></i>
+            Back to all categories
+        </a>
         <form method="POST" action="/admin/categories/edit-category/<%= id %>?_method=PUT">
             <div class="ql-container form-group">
                 <input type="text" name="title" value="<%= title %>" placeholder=" " class="ql-input" />

@@ -1,20 +1,12 @@
 <%- include('../layout/header.ejs'); -%>
     <div class="container form-container">
         <div class="title-header">
-            <h4>Manage your product</h4>
+            <h4>Manage your trash</h4>
         </div>
-        <div class="d-flex justify-content-between  mt-4 mb-4">
-            <a href="/admin/products/add-product" class="btn btn-default">
-                <i class="fa-solid fa-circle-plus"></i>
-                Add a product
-            </a>
-            <a class="link" href="/admin/trash">
-                <i class="fa-solid fa-trash icon"></i>
-                <span class="notification">
-                    <%= count %>
-                </span>
-            </a>
-        </div>
+        <a href="/admin/products" class="btn btn-default  mt-4 mb-4">
+            <i class="fa-solid fa-circle-chevron-left"></i>
+            Back to manage products page
+        </a>
         <table class="table table-hover alignmiddle">
             <thead>
                 <tr class="home">
@@ -23,8 +15,8 @@
                     <th scope="col">Price</th>
                     <th scope="col">Category</th>
                     <th scope="col">Product Image</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
+                    <th scope="col">Restore</th>
+                    <th scope="col">Destroy</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,9 +42,9 @@
                                         <img class="image" src="/img/<%= product.image %>">
                                         <% }%>
                             </td>
-                            <td><a href="/admin/products/edit-product/<%= product._id %>">Edit</a></td>
+                            <td><a href="" data-id="<%=product._id%>">Restore</a></td>
                             <td><a class="confirm-deletion" data-id="<%=product._id%>" data-toggle="modal"
-                                    data-target="#delete-product-modal" href="">Delete</a>
+                                    data-target="#delete-product-modal" href="">Destroy</a>
                             </td>
                         </tr>
                         <%})%>
@@ -78,19 +70,19 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Product?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Destroy Product?</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to delete this product?</p>
-                    <img src="https://upload-os-bbs.hoyolab.com/upload/2020/01/17/1036052/b06ecac6607336e7292f75a94b6d2351_2737180836044039850.png?x-oss-process=image/resize,s_1000/quality,q_80/auto-orient,0/interlace,1/format,png"
+                    <p>Are you sure you want to destroy this product? (You can't restore this product!!!)</p>
+                    <img src="https://upload-os-bbs.hoyolab.com/upload/2021/07/15/1079059/dee4f77d7c27f09425b0012f338c0540_2282913593959284346.png?x-oss-process=image%2Fresize%2Cs_1000%2Fquality%2Cq_80%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp"
                         alt="" class="img-modal" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button id="btn-delete-product" type="button" class="btn btn-primary">Delete</button>
+                    <button id="btn-delete-product" type="button" class="btn btn-primary">Destroy</button>
                 </div>
             </div>
         </div>
@@ -100,6 +92,6 @@
     <!-- Action form hidden in JS -->
     <form name="delete-product-form" method="POST">
     </form>
-    <script src="/js/product.js"></script>
+    <script src="/js/trash.js"></script>
 
     <%- include('../layout/footer'); -%>
