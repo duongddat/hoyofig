@@ -10,9 +10,11 @@
             </a>
             <a class="link" href="/admin/trash">
                 <i class="fa-solid fa-trash icon"></i>
-                <span class="notification">
-                    <%= count %>
-                </span>
+                <% if (count !==0) {%>
+                    <span class="notification">
+                        <%= count %>
+                    </span>
+                    <%}%>
             </a>
         </div>
         <table class="table table-hover alignmiddle">
@@ -32,7 +34,7 @@
                     <% products.map((product, i)=> { %>
                         <tr>
                             <td>
-                                <%=i%>
+                                <%=i + 1%>
                             </td>
                             <td>
                                 <%= product.title %>
@@ -58,7 +60,7 @@
                         <%})%>
                             <% } else { %>
                                 <tr>
-                                    <td colspan="3" class="text-center">
+                                    <td colspan="7" class="text-center">
                                         <div class="d-flex flex-column none-item">
                                             <img src='https://www.hoyolab.com/_nuxt/img/56a30a4.png' alt='' />
                                             <span>You have not posted any products yet~</span>
@@ -85,7 +87,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Are you sure you want to delete this product?</p>
-                    <img src="https://upload-os-bbs.hoyolab.com/upload/2020/01/17/1036052/b06ecac6607336e7292f75a94b6d2351_2737180836044039850.png?x-oss-process=image/resize,s_1000/quality,q_80/auto-orient,0/interlace,1/format,png"
+                    <img src="https://upload-os-bbs.hoyolab.com/upload/2021/07/15/1079059/dee4f77d7c27f09425b0012f338c0540_2282913593959284346.png?x-oss-process=image%2Fresize%2Cs_1000%2Fquality%2Cq_80%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp"
                         alt="" class="img-modal" />
                 </div>
                 <div class="modal-footer">

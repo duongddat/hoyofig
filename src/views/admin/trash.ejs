@@ -42,7 +42,7 @@
                                         <img class="image" src="/img/<%= product.image %>">
                                         <% }%>
                             </td>
-                            <td><a href="" data-id="<%=product._id%>">Restore</a></td>
+                            <td><a class="btn-restored" href="" data-id="<%=product._id%>">Restore</a></td>
                             <td><a class="confirm-deletion" data-id="<%=product._id%>" data-toggle="modal"
                                     data-target="#delete-product-modal" href="">Destroy</a>
                             </td>
@@ -50,10 +50,10 @@
                         <%})%>
                             <% } else { %>
                                 <tr>
-                                    <td colspan="3" class="text-center">
+                                    <td colspan="7" class="text-center">
                                         <div class="d-flex flex-column none-item">
                                             <img src='https://www.hoyolab.com/_nuxt/img/56a30a4.png' alt='' />
-                                            <span>You have not posted any products yet~</span>
+                                            <span>Your trash have not any products yet~</span>
                                         </div>
                                     </td>
                                 </tr>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="modal-body">
                     <p>Are you sure you want to destroy this product? (You can't restore this product!!!)</p>
-                    <img src="https://upload-os-bbs.hoyolab.com/upload/2021/07/15/1079059/dee4f77d7c27f09425b0012f338c0540_2282913593959284346.png?x-oss-process=image%2Fresize%2Cs_1000%2Fquality%2Cq_80%2Fauto-orient%2C0%2Finterlace%2C1%2Fformat%2Cwebp"
+                    <img src="https://upload-os-bbs.hoyolab.com/upload/2020/01/17/1036052/b06ecac6607336e7292f75a94b6d2351_2737180836044039850.png?x-oss-process=image/resize,s_1000/quality,q_80/auto-orient,0/interlace,1/format,png"
                         alt="" class="img-modal" />
                 </div>
                 <div class="modal-footer">
@@ -90,8 +90,8 @@
 
     <!-- Delete hidden form  -->
     <!-- Action form hidden in JS -->
-    <form name="delete-product-form" method="POST">
-    </form>
+    <form name="delete-product-form" method="POST"></form>
+    <form name="restore-course-form" method="POST"></form>
     <script src="/js/trash.js"></script>
 
     <%- include('../layout/footer'); -%>

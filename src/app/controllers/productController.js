@@ -3,12 +3,11 @@ const { validationResult } = require('express-validator');
 
 const Category = require('../models/category');
 const Product = require('../models/product');
-const product = require('../models/product');
 
-
+//[GET] /admin/products
 const getProductpage = (req, res, next) => {
     const productFind = Product.find({});
-    const countDelete = Product.countDocumentsDeleted({});
+    const countDelete = Product.countDocumentsWithDeleted({ deleted: true });
 
     Promise.all([productFind, countDelete])
         .then(([products, count]) => {
@@ -20,6 +19,7 @@ const getProductpage = (req, res, next) => {
         .catch(next);
 }
 
+//[GET] /admin/products/add-product
 const getProductAdd = (req, res, next) => {
     Category.find({})
         .then(categories => {
@@ -30,6 +30,7 @@ const getProductAdd = (req, res, next) => {
         .catch(next);
 }
 
+//[POST] /admin/products/add-product
 const postProductAdd = (req, res, next) => {
     const title = req.body.title;
     const slug = title.replace(/\s+/g, '-').toLowerCase();
@@ -80,6 +81,7 @@ const postProductAdd = (req, res, next) => {
     }
 }
 
+//[GET] /admin/products/edit-product/:id
 const getPorductEdit = (req, res, next) => {
     const category = Category.find({})
     const product = Product.findById(req.params.id);
@@ -100,6 +102,7 @@ const getPorductEdit = (req, res, next) => {
 
 }
 
+//[POST] /admin/products/edit-product/:id
 const putProductEdit = (req, res, next) => {
     const id = req.params.id;
     const title = req.body.title;
@@ -164,7 +167,17 @@ const putProductEdit = (req, res, next) => {
     }
 }
 
+
+
+//[DELETE] /admin/products/delete-product/:id
 const deleteProductDestroy = (req, res, next) => {
+    Product.delete({ _id: req.params.id })
+        .then(() => res.redirect('back'))
+        .catch(next);
+}
+
+//[DELETE] /admin/trash/delete-product/:id
+const deleteProductTrash = (req, res, next) => {
     const productFind = Product.findById(req.params.id);
     const productDeleteOne = Product.deleteOne({ _id: req.params.id });
 
@@ -182,6 +195,14 @@ const deleteProductDestroy = (req, res, next) => {
         .catch(next);
 }
 
+//[PATCH] /admin/trash/restore-product/:id
+const patchProductRestore = (req, res, next) => {
+    Product.restore({ _id: req.params.id })
+        .then(() => res.redirect('back'))
+        .catch(next);
+}
+
+
 module.exports = {
     getProductpage,
     getProductAdd,
@@ -189,4 +210,6 @@ module.exports = {
     getPorductEdit,
     putProductEdit,
     deleteProductDestroy,
+    deleteProductTrash,
+    patchProductRestore,
 }
