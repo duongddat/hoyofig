@@ -32,7 +32,32 @@
         </div>
         <div class="container">
             <div class="row container-products">
-                <div class="col-xs-12 col-lg-3 col-xl-3">
+                <div class="col-xs-block col-12">
+                    <nav class="mobile-category">
+                        <ul class="mobile-category__list">
+                            <li class="mobile-category__item">
+                                <a href="/" class="mobile-category__link">
+                                    All products
+                                </a>
+                            </li>
+                            <% categories.map((c, index)=>{ %>
+                                <li class="mobile-category__item">
+                                    <a href="/<%= c.slug %>" class="mobile-category__link">
+                                        <%= c.title %>
+                                    </a>
+                                </li>
+                                <% }); %>
+                                    <% categories.map((c, index)=>{ %>
+                                        <li class="mobile-category__item">
+                                            <a href="/<%= c.slug %>" class="mobile-category__link">
+                                                <%= c.title %>
+                                            </a>
+                                        </li>
+                                        <% }); %>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-xs-none col-lg-3 col-xl-3">
                     <ul class="form-container">
                         <div class="title-header">
                             <h4 class="ml-4">Product category</h4>
@@ -61,24 +86,26 @@
                         <% if (products.length> 0) {%>
                             <% products.map((product, index)=> {%>
                                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 card-product">
-                                    <div class="card">
-                                        <img class="card-img" src="img/<%= product.image %>" alt="Card image">
-                                        <div class="card-body">
-                                            <p class="card-detail">
-                                                <%= helper.covertTitle(product.title) %>
-                                            </p>
-                                            <p class="card-price">
-                                                Price: $<%=parseFloat(product.price).toFixed(2)%>
-                                            </p>
-                                        </div>
-                                        <div class="card-action">
-                                            <div class="card-actions-inner">
-                                                <a href="/" class="btn-add-cart">
-                                                    <i class="fas fa-cart-shopping"></i>
-                                                </a>
+                                    <a href="/<%= product.category %>/<%= product.slug %>">
+                                        <div class="card">
+                                            <img class="card-img" src="img/<%= product.image %>" alt="Card image">
+                                            <div class="card-body">
+                                                <p class="card-detail">
+                                                    <%= helper.covertTitle(product.title) %>
+                                                </p>
+                                                <p class="card-price">
+                                                    Price: $<%=parseFloat(product.price).toFixed(2)%>
+                                                </p>
+                                            </div>
+                                            <div class="card-action">
+                                                <div class="card-actions-inner">
+                                                    <a href="/" class="btn-add-cart">
+                                                        <i class="fas fa-cart-shopping"></i>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 <%});%>
                                     <%} else {%>

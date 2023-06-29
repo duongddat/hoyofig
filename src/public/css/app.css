@@ -24,6 +24,10 @@ body {
   outline: none;
 }
 
+.col-xs-block {
+  display: none;
+}
+
 .fixed {
   position: fixed;
   top: 0;
@@ -186,10 +190,11 @@ table.alignmiddle td {
 .card-product .card {
   position: relative;
   cursor: pointer;
-  transition: all 300ms ease;
+  overflow: hidden;
 }
 .card-product .card .card-img {
   position: relative;
+  transition: 0.3s ease;
   height: 240px;
   object-fit: cover;
 }
@@ -229,6 +234,9 @@ table.alignmiddle td {
 }
 .card-product .card:hover {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+.card-product .card:hover .card-img {
+  transform: scale(1.1) rotate(1.5deg);
 }
 .card-product .card:hover .card-body,
 .card-product .card:hover .card-action {

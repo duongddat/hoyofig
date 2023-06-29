@@ -24,7 +24,9 @@ body {
   background-color: #f5f6fb;
   outline: none;
 }
-
+.col-xs-block {
+  display: none;
+}
 .fixed {
   position: fixed;
   top: 0;
@@ -195,10 +197,11 @@ table.alignmiddle td {
   .card {
     position: relative;
     cursor: pointer;
-    transition: all 300ms ease;
+    overflow: hidden;
 
     .card-img {
       position: relative;
+      transition: 0.3s ease;
       height: 240px;
       object-fit: cover;
     }
@@ -243,6 +246,10 @@ table.alignmiddle td {
     &:hover {
       box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
         0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+      .card-img {
+        transform: scale(1.1) rotate(1.5deg);
+      }
       .card-body,
       .card-action {
         background: rgba(255, 255, 255, 0.85);

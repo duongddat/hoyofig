@@ -36,6 +36,10 @@ const getProductsOfCategory = (req, res, next) => {
 
 }
 
+const getDetailProduct = (req, res, next) => {
+    res.json(req.params);
+}
+
 
 const getAboutUspage = (req, res) => {
     res.send('About page');
@@ -48,6 +52,7 @@ const getContactpage = (req, res) => {
 module.exports = {
     getHomepage,
     getProductsOfCategory,
+    getDetailProduct,
     getAboutUspage,
     getContactpage,
 }
