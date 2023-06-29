@@ -3,6 +3,7 @@ const Product = require('../models/product');
 
 const helper = require('../../services/helpers/helper.js');
 
+//[GET] /
 const getHomepage = (req, res, next) => {
     const getCategory = Category.find({});
     const getProduct = Product.find({});
@@ -18,6 +19,24 @@ const getHomepage = (req, res, next) => {
         .catch(next);
 }
 
+//[GET] /:category
+const getProductsOfCategory = (req, res, next) => {
+    const getCategory = Category.find({});
+    const getProduct = Product.find({ category: req.params.category });
+
+    Promise.all([getCategory, getProduct])
+        .then(([categories, products]) => {
+            res.render('home.ejs', {
+                categories,
+                products,
+                helper
+            });
+        })
+        .catch(next);
+
+}
+
+
 const getAboutUspage = (req, res) => {
     res.send('About page');
 }
@@ -28,6 +47,7 @@ const getContactpage = (req, res) => {
 
 module.exports = {
     getHomepage,
+    getProductsOfCategory,
     getAboutUspage,
     getContactpage,
 }

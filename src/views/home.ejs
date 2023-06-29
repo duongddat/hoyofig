@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="container full-content">
+        <div class="container">
             <div class="row container-products">
                 <div class="col-xs-12 col-lg-3 col-xl-3">
                     <ul class="form-container">
@@ -44,7 +44,7 @@
                             </li>
                         </a>
                         <% categories.map((c, index)=>{ %>
-                            <a href="/products/<%= c.slug %>">
+                            <a href="/<%= c.slug %>">
                                 <li class="form-item">
                                     <i class="fa-regular fa-folder-open mr-2"></i>
                                     <%= c.title %>
@@ -58,28 +58,40 @@
                 </div>
                 <div class="col-md-12 col-lg-9 col-xl-9">
                     <div class="row products">
-                        <% products.map((product, index)=> {%>
-                            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 card-product">
-                                <div class="card">
-                                    <img class="card-img" src="img/<%= product.image %>" alt="Card image">
-                                    <div class="card-body">
-                                        <p class="card-detail">
-                                            <%= helper.covertTitle(product.title) %>
-                                        </p>
-                                        <p class="card-price">
-                                            Price: $<%=parseFloat(product.price).toFixed(2)%>
-                                        </p>
-                                    </div>
-                                    <div class="card-action">
-                                        <div class="card-actions-inner">
-                                            <p class="preview">View details</p>
+                        <% if (products.length> 0) {%>
+                            <% products.map((product, index)=> {%>
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 card-product">
+                                    <div class="card">
+                                        <img class="card-img" src="img/<%= product.image %>" alt="Card image">
+                                        <div class="card-body">
+                                            <p class="card-detail">
+                                                <%= helper.covertTitle(product.title) %>
+                                            </p>
+                                            <p class="card-price">
+                                                Price: $<%=parseFloat(product.price).toFixed(2)%>
+                                            </p>
+                                        </div>
+                                        <div class="card-action">
+                                            <div class="card-actions-inner">
+                                                <a href="/" class="btn-add-cart">
+                                                    <i class="fas fa-cart-shopping"></i>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <%});%>
+                                <%});%>
+                                    <%} else {%>
+                                        <div class="form-container text-center">
+                                            <img src="https://wiki.hoyolab.com/_nuxt/img/mimo-active.a2f170b.png"
+                                                alt="Not found">
+                                            <p class="not-product-title">~Product Unavailable~</p>
+                                        </div>
+                                        <%}%>
+
                     </div>
                 </div>
             </div>
         </div>
+        <script src="/js/home.js"></script>
         <%- include('layout/footer'); -%>

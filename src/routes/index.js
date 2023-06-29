@@ -1,10 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-const { getHomepage, getAboutUspage, getContactpage } = require('../app/controllers/homeController');
+const { getHomepage, getProductsOfCategory, getAboutUspage, getContactpage } = require('../app/controllers/homeController');
 
 //router.Method('/route', handle)
 router.get('/', getHomepage);
+router.get('/:category', getProductsOfCategory);
 router.get('/about-us', getAboutUspage);
 router.get('/contact', getContactpage);
 
