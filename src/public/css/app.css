@@ -88,7 +88,7 @@ table.alignmiddle td {
 }
 
 .container {
-  max-width: 1300px !important;
+  max-width: 1350px !important;
 }
 
 .font {
@@ -115,10 +115,6 @@ table.alignmiddle td {
   font-weight: bold;
 }
 
-.full-content {
-  height: 100vh;
-}
-
 .form-container {
   position: relative;
   border-radius: 16px;
@@ -136,6 +132,81 @@ table.alignmiddle td {
   line-height: 24px;
   font-size: 16px;
   font-weight: 700;
+}
+.form-container .form-item {
+  padding: 15px;
+  border-bottom: 1px solid #f5f6fb;
+}
+.form-container .form-footer {
+  text-align: center;
+  padding: 15px;
+  color: #999;
+}
+
+.container-products {
+  padding: 15px;
+}
+
+.products {
+  margin-bottom: 24px;
+}
+
+.card-product {
+  padding: 8px;
+}
+.card-product .card {
+  position: relative;
+  cursor: pointer;
+  transition: all 300ms linear;
+}
+.card-product .card .card-img {
+  position: relative;
+  height: 240px;
+  object-fit: cover;
+}
+.card-product .card .card-body .card-detail {
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+.card-product .card .card-body .card-price {
+  margin: 0;
+  font-weight: 700;
+  font-size: 14px;
+  color: #ee4d2d;
+}
+.card-product .card .card-action {
+  position: absolute;
+  bottom: -50px;
+  left: 0px;
+  right: 0px;
+  padding: 0 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms linear;
+}
+.card-product .card .card-action .card-actions-inner {
+  text-align: center;
+}
+.card-product .card .card-action .card-actions-inner .preview {
+  margin: 0;
+  color: #ee4d2d;
+}
+.card-product .card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+.card-product .card:hover .card-body,
+.card-product .card:hover .card-action {
+  background: rgba(255, 255, 255, 0.85);
+}
+.card-product .card:hover .card-body {
+  transform: translateY(-45px);
+}
+.card-product .card:hover .card-action {
+  opacity: 1;
+  bottom: 12px;
+  visibility: visible;
+  z-index: 1;
 }
 
 .footer-table {
