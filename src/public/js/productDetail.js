@@ -1,5 +1,6 @@
 // Loaded content dom
 document.addEventListener('DOMContentLoaded', function () {
+    //Zoom Img
     let zoom = $('.zoom');
     let imgZoom = $('#imgZoom');
 
@@ -23,5 +24,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
     zoom.mouseout(function () {
         imgZoom.css('opacity', '0');
+    });
+
+    //Btn click steps
+    const myInput = $("#my-input");
+    const btn = $(".btn-quantity");
+    let min = parseInt(myInput.attr("min"));
+    let max = parseInt(myInput.attr("max"));
+    let step = parseInt(myInput.attr("step"));
+    let val = parseInt(myInput.val());
+
+    btn.on("click", function (event) {
+        event.preventDefault();
+
+        let id = $(this).attr("id");
+        if (id === "decrement") {
+            let newValue = val - step;
+            if (newValue >= min) {
+                myInput.val(newValue);
+                val = newValue;
+            }
+        } else if (id === "increment") {
+            let newValue = val + step;
+            if (newValue <= max) {
+                myInput.val(newValue);
+                val = newValue;
+            }
+        }
     });
 });

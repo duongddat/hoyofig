@@ -233,13 +233,11 @@ table.alignmiddle td {
 
       .card-actions-inner {
         width: 100%;
+        color: #657ef8;
+        height: 34px;
+        line-height: 32px;
         text-align: center;
-        .btn-add-cart {
-          height: 34px;
-          line-height: 32px;
-          border-radius: 5px;
-          color: #657ef8;
-        }
+        border-radius: 5px;
       }
     }
 
@@ -267,9 +265,7 @@ table.alignmiddle td {
           border-radius: 5px;
           &:hover {
             background-color: #657ef8;
-            .btn-add-cart {
-              color: #e1e7ff;
-            }
+            color: #e1e7ff;
           }
         }
       }

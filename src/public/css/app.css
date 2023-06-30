@@ -224,13 +224,11 @@ table.alignmiddle td {
 }
 .card-product .card .card-action .card-actions-inner {
   width: 100%;
-  text-align: center;
-}
-.card-product .card .card-action .card-actions-inner .btn-add-cart {
+  color: #657ef8;
   height: 34px;
   line-height: 32px;
+  text-align: center;
   border-radius: 5px;
-  color: #657ef8;
 }
 .card-product .card:hover {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
@@ -257,8 +255,6 @@ table.alignmiddle td {
 }
 .card-product .card:hover .card-action .card-actions-inner:hover {
   background-color: #657ef8;
-}
-.card-product .card:hover .card-action .card-actions-inner:hover .btn-add-cart {
   color: #e1e7ff;
 }
 

@@ -10,6 +10,7 @@ const home = require('./routes/index.js');
 const category = require('./routes/adminCategory');
 const product = require('./routes/adminProduct');
 const trash = require('./routes/trash');
+const cart = require('./routes/cart');
 
 const app = express();
 const port = 8080;
@@ -51,11 +52,20 @@ app.use(session({
     cookie: { secure: true }
 }));
 
+//Cart session middleware
+app.get('*', (req, res, next) => {
+    res.locals.cart = req.session.cart;
+    // res.locals.user = req.user || null;
+    next();
+})
+
+
 //routes
-app.use('/', home);
+app.use('/admin/trash', trash);
 app.use('/admin', category);
 app.use('/admin', product);
-app.use('/admin/trash', trash);
+app.use('/cart', cart);
+app.use('/', home);
 
 app.listen(port, hostname, () => {
     console.log(`Example app listening on port ${port}`)

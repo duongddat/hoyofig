@@ -1,7 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-const { getHomepage, getProductsOfCategory, getAboutUspage, getContactpage, getDetailProduct } = require('../app/controllers/homeController');
+const { getHomepage,
+    getProductsOfCategory,
+    getAboutUspage,
+    getContactpage,
+    getDetailProduct } = require('../app/controllers/homeController');
 
 //router.Method('/route', handle)
 router.get('/:category/:id', getDetailProduct);
