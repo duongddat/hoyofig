@@ -86,9 +86,9 @@
                         <% if (products.length> 0) {%>
                             <% products.map((product, index)=> {%>
                                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 card-product">
-                                    <a href="/<%= product.category %>/<%= product.slug %>">
+                                    <a href="/<%= product.category %>/<%= product.id %>">
                                         <div class="card">
-                                            <img class="card-img" src="img/<%= product.image %>" alt="Card image">
+                                            <img class="card-img" src="/img/<%= product.image %>" alt="Card image">
                                             <div class="card-body">
                                                 <p class="card-detail">
                                                     <%= helper.covertTitle(product.title) %>
@@ -120,5 +120,4 @@
                 </div>
             </div>
         </div>
-        <script src="/js/home.js"></script>
         <%- include('layout/footer'); -%>

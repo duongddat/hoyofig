@@ -2,6 +2,7 @@ const Category = require('../models/category');
 const Product = require('../models/product');
 
 const helper = require('../../services/helpers/helper.js');
+const product = require('../models/product');
 
 //[GET] /
 const getHomepage = (req, res, next) => {
@@ -37,7 +38,14 @@ const getProductsOfCategory = (req, res, next) => {
 }
 
 const getDetailProduct = (req, res, next) => {
-    res.json(req.params);
+    Product.findById(req.params.id)
+        .then(product => {
+            res.render('productDetail.ejs', {
+                product,
+                helper
+            })
+        })
+        .catch(next);
 }
 
 
