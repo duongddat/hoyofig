@@ -1,4 +1,6 @@
 const Product = require('../models/product');
+const helper = require('../../services/helpers/helper.js');
+
 
 //[GET] & [POST] /cart/add/:id
 const getCartAdd = (req, res, next) => {
@@ -51,7 +53,8 @@ const getCheckout = (req, res, next) => {
         res.redirect('/cart/checkout');
     } else {
         res.render('checkOut.ejs', {
-            cart: req.session.cart
+            cart: req.session.cart,
+            helper: helper
         });
     }
 }

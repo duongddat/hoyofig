@@ -1,59 +1,96 @@
 <%- include('layout/header.ejs'); -%>
     <div class="container form-container">
         <div class="title-header">
-            <h4>Manage your product</h4>
+            <h4>Your cart</h4>
         </div>
         <div class="mt-4 mb-4">
-            <a href="/admin/products/add-product" class="btn btn-default">
+            <a href="/" class="btn btn-default">
                 <i class="fa-solid fa-circle-plus"></i>
-                Add a product
+                Shopping now~
             </a>
         </div>
         <% if (typeof cart !=="undefined" ) { %>
-            <table class="table table-hover alignmiddle">
-                <thead>
-                    <tr>
-                        <th>Image</th>
-                        <th>Title</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th></th>
-                        <th>Subtotal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% var total=0; %>
-                        <% cart.map(function(product){ %>
-                            <% var sub=parseFloat(product.qty * product.price).toFixed(2) %>
-                                <% total +=+sub %>
-                                    <tr>
-                                        <td><img class="image" src="<%= product.image %>" alt=""></td>
-                                        <td>
-                                            <%= product.title %>
-                                        </td>
-                                        <td>$<%= product.price %>
-                                        </td>
-                                        <td>
-                                            <%= product.qty %>
-                                        </td>
-                                        <td>
-                                            <a href="/cart/update/<%= product.title %>?action=add">+</a>&nbsp;
-                                            <a href="/cart/update/<%= product.title %>?action=remove">-</a>&nbsp;
-                                            <a href="/cart/update/<%= product.title %>?action=clear">Clear</a>&nbsp;
-                                        </td>
-                                        <td>
-                                            $<%= sub %>
-                                        </td>
-                                    </tr>
-                                    <% }); %>
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="col-md-8 col-sm-12 content-cart-detail">
+                    <div class="list-pageform-cart">
+                        <form name="action-cart-form" method="POST">
+                            <div class="cart-row">
+                                <p class="title-number-cart">
+                                    You have <strong>
+                                        <%=cart.length%>
+                                    </strong>
+                                    in your cart
+                                </p>
+                                <div class="table-cart">
+                                    <% cart.map(function(product){ %>
+                                        <div class="media-line-item">
+                                            <div class="media-left">
+                                                <a href="*">
+                                                    <img class="item-image" src="<%= product.image %>" alt="">
+                                                </a>
+                                            </div>
+                                            <div class="media-right">
+                                                <div class="item-info">
+                                                    <a href="*">
+                                                        <h3 class="item-title">
+                                                            <%= product.title %>
+                                                        </h3>
+                                                    </a>
+                                                </div>
+                                                <div class="item-qty">
+                                                    <div class="input-quantity">
+                                                        <button class="btn-quantity" id="decrement"> - </button>
+                                                        <input type="number" min="1" max="100" step="1" name="quantity"
+                                                            id="my-input" value="<%=product.qty%>" readonly>
+                                                        <button class="btn-quantity" id="increment"> + </button>
+                                                    </div>
+                                                </div>
+                                                <p class="item-price">
+                                                    <span>Price: $<%= product.price %></span>
+                                                </p>
+                                            </div>
+                                            <div class="item-total-price">
+                                                <div class="price">
+                                                    <span class="text">Cost: </span>
+                                                    <span class="line-item-total">$<%= helper.costProduct(product.price,
+                                                            product.qty) %></span>
+                                                </div>
+                                                <div class="remove">
+                                                    <a href="*">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <% }); %>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-12">
+                    <div class="order-summary-block">
+                        <h2 class="summary-title">Information order</h2>
+                        <div class="summary-total">
+                            <p>Total money: <span>
+                                    $<%= helper.totalCart(cart)%>
+                                </span></p>
+                        </div>
+                        <div class="summary-action">
+                            <p>
+                                Phí vận chuyển sẽ được tính ở trang thanh toán.
+                            </p>
+                            <p>
+                                Bạn cũng có thể nhập mã giảm giá ở trang thanh toán.
+                            </p>
+                            <a href="*" class="checkout-btn">Thanh toán</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <% } else {%>
                 <h3 class="text-center">Your cart is empty.</h3>
                 <% } %>
-                    <div class="footer-table">
-                        <h5>That's all~</h5>
-                    </div>
     </div>
 
     <%- include('layout/footer'); -%>
