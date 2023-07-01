@@ -1,0 +1,59 @@
+<%- include('layout/header.ejs'); -%>
+    <div class="container form-container">
+        <div class="title-header">
+            <h4>Manage your product</h4>
+        </div>
+        <div class="mt-4 mb-4">
+            <a href="/admin/products/add-product" class="btn btn-default">
+                <i class="fa-solid fa-circle-plus"></i>
+                Add a product
+            </a>
+        </div>
+        <% if (typeof cart !=="undefined" ) { %>
+            <table class="table table-hover alignmiddle">
+                <thead>
+                    <tr>
+                        <th>Image</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th></th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% var total=0; %>
+                        <% cart.map(function(product){ %>
+                            <% var sub=parseFloat(product.qty * product.price).toFixed(2) %>
+                                <% total +=+sub %>
+                                    <tr>
+                                        <td><img class="image" src="<%= product.image %>" alt=""></td>
+                                        <td>
+                                            <%= product.title %>
+                                        </td>
+                                        <td>$<%= product.price %>
+                                        </td>
+                                        <td>
+                                            <%= product.qty %>
+                                        </td>
+                                        <td>
+                                            <a href="/cart/update/<%= product.title %>?action=add">+</a>&nbsp;
+                                            <a href="/cart/update/<%= product.title %>?action=remove">-</a>&nbsp;
+                                            <a href="/cart/update/<%= product.title %>?action=clear">Clear</a>&nbsp;
+                                        </td>
+                                        <td>
+                                            $<%= sub %>
+                                        </td>
+                                    </tr>
+                                    <% }); %>
+                </tbody>
+            </table>
+            <% } else {%>
+                <h3 class="text-center">Your cart is empty.</h3>
+                <% } %>
+                    <div class="footer-table">
+                        <h5>That's all~</h5>
+                    </div>
+    </div>
+
+    <%- include('layout/footer'); -%>

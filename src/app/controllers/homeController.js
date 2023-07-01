@@ -37,6 +37,7 @@ const getProductsOfCategory = (req, res, next) => {
 
 }
 
+//[GET] /:category/:id
 const getDetailProduct = (req, res, next) => {
     Product.findById(req.params.id)
         .then(product => {
