@@ -217,6 +217,10 @@
   right: 0;
   top: 15px;
 }
+.list-pageform-cart .cart-row .table-cart .media-line-item .item-total-price .remove:hover .btn {
+  background-color: red;
+  color: #ebecf0;
+}
 
 .order-summary-block {
   border: 1px solid #dfe0e1;

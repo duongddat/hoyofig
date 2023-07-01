@@ -14,6 +14,7 @@ const getCartAdd = (req, res, next) => {
                 req.session.cart.push({
                     id: id,
                     title: product.title,
+                    category: product.category,
                     qty: quantity,
                     price: product.price,
                     image: '/img/' + product.image
@@ -34,6 +35,7 @@ const getCartAdd = (req, res, next) => {
                     cart.push({
                         id: id,
                         title: product.title,
+                        category: product.category,
                         qty: quantity,
                         price: product.price,
                         image: '/img/' + product.image
@@ -59,7 +61,42 @@ const getCheckout = (req, res, next) => {
     }
 }
 
+//[POST] /update/:id?action
+const postCartUpdate = (req, res, next) => {
+    const cart = req.session.cart;
+    const id = req.params.id;
+    const action = req.query.action;
+
+    for (var i = 0; i < cart.length; i++) {
+        if (cart[i].id === id) {
+            switch (action) {
+                case "increment":
+                    cart[i].qty++;
+                    break;
+                case "decrement":
+                    cart[i].qty--;
+                    if (cart[i].qty < 1)
+                        cart.splice(i, 1);
+                    break;
+                case "delete":
+                    cart.splice(i, 1);
+                    if (cart.length == 0)
+                        delete req.session.cart;
+                    break;
+                default:
+                    console.log('update problem');
+                    break;
+            }
+            break;
+        }
+    }
+
+    req.flash('success', 'Cart updated!');
+    res.redirect('/cart/checkout');
+}
+
 module.exports = {
     getCartAdd,
     getCheckout,
+    postCartUpdate,
 }

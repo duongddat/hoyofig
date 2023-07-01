@@ -25,13 +25,13 @@
                                     <% cart.map(function(product){ %>
                                         <div class="media-line-item">
                                             <div class="media-left">
-                                                <a href="*">
+                                                <a href="/<%= product.category %>/<%= product.id %>">
                                                     <img class="item-image" src="<%= product.image %>" alt="">
                                                 </a>
                                             </div>
                                             <div class="media-right">
                                                 <div class="item-info">
-                                                    <a href="*">
+                                                    <a href="/<%= product.category %>/<%= product.id %>">
                                                         <h3 class="item-title">
                                                             <%= product.title %>
                                                         </h3>
@@ -39,10 +39,12 @@
                                                 </div>
                                                 <div class="item-qty">
                                                     <div class="input-quantity">
-                                                        <button class="btn-quantity" id="decrement"> - </button>
+                                                        <button class="btn-quantity" id="decrement"
+                                                            data-id="<%=product.id%>"> - </button>
                                                         <input type="number" min="1" max="100" step="1" name="quantity"
                                                             id="my-input" value="<%=product.qty%>" readonly>
-                                                        <button class="btn-quantity" id="increment"> + </button>
+                                                        <button class="btn-quantity" id="increment"
+                                                            data-id="<%=product.id%>"> + </button>
                                                     </div>
                                                 </div>
                                                 <p class="item-price">
@@ -56,9 +58,10 @@
                                                             product.qty) %></span>
                                                 </div>
                                                 <div class="remove">
-                                                    <a href="*">
+                                                    <button id="delete" class="btn btn-delete"
+                                                        data-id="<%=product.id%>">
                                                         <i class="fa-solid fa-trash"></i>
-                                                    </a>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -92,5 +95,5 @@
                 <h3 class="text-center">Your cart is empty.</h3>
                 <% } %>
     </div>
-
+    <script src="/js/checkOut.js"></script>
     <%- include('layout/footer'); -%>

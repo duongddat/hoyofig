@@ -245,6 +245,13 @@
             text-align: center;
             right: 0;
             top: 15px;
+
+            &:hover {
+              .btn {
+                background-color: red;
+                color: #ebecf0;
+              }
+            }
           }
         }
       }
