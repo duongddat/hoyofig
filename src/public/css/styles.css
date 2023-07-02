@@ -292,4 +292,16 @@
   margin-top: 12px;
 }
 
+.note-none {
+  padding: 25px 0;
+}
+.note-none .img-note {
+  width: 150px;
+}
+.note-none .note {
+  font-size: 16px;
+  font-weight: 600;
+  font-style: italic;
+}
+
 /*# sourceMappingURL=styles.css.map */

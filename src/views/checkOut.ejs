@@ -86,13 +86,17 @@
                             <p>
                                 Bạn cũng có thể nhập mã giảm giá ở trang thanh toán.
                             </p>
-                            <a href="*" class="checkout-btn">Thanh toán</a>
+                            <a href="/cart/clear" class="checkout-btn">Pay</a>
                         </div>
                     </div>
                 </div>
             </div>
             <% } else {%>
-                <h3 class="text-center">Your cart is empty.</h3>
+                <div class="note-none text-center">
+                    <img src="https://webstatic-sea.hoyoverse.com/upload/static-resource/2022/03/11/1aa91241d10571a4f52f4a8f8fa5e519_4685816973179560758.gif"
+                        alt="" class="img-note">
+                    <h5 class="note">Your cart is empty! <strong>Shopping now~~~~~</strong></h5>
+                </div>
                 <% } %>
     </div>
     <script src="/js/checkOut.js"></script>

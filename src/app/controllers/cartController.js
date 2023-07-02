@@ -95,8 +95,18 @@ const postCartUpdate = (req, res, next) => {
     res.redirect('/cart/checkout');
 }
 
+// [GET] /cart/clear
+const getCartClear = (req, res, next) => {
+    delete req.session.cart;
+
+    req.flash('success', 'Thank you for your order. Enjoy your free surprise gift!');
+    res.redirect('/cart/checkout');
+
+};
+
 module.exports = {
     getCartAdd,
     getCheckout,
     postCartUpdate,
+    getCartClear,
 }

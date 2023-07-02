@@ -336,3 +336,16 @@
     }
   }
 }
+
+.note-none {
+  padding: 25px 0;
+
+  .img-note {
+    width: 150px;
+  }
+  .note {
+    font-size: 16px;
+    font-weight: 600;
+    font-style: italic;
+  }
+}
