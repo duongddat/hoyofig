@@ -234,7 +234,7 @@ table.alignmiddle td {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 .card-product .card:hover .card-img {
-  transform: scale(1.1) rotate(1.5deg);
+  transform: scale(1.2);
 }
 .card-product .card:hover .card-body,
 .card-product .card:hover .card-action {

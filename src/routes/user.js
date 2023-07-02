@@ -5,7 +5,9 @@ const { body } = require('express-validator');
 const {
     getRegisterPage,
     postRegisterUser,
-    getLoginPage
+    getLoginPage,
+    postLoginUser,
+    getLogoutUser
 } = require('../app/controllers/userController');
 
 //router.Method('/route', handle)
@@ -21,5 +23,7 @@ router.post('/register',
         return true;
     }), postRegisterUser);
 router.get('/login', getLoginPage);
+router.post('/login', postLoginUser);
+router.get('/logout', getLogoutUser);
 
 module.exports = router; //export default 

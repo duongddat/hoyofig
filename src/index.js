@@ -4,6 +4,7 @@ const methodOverride = require('method-override')
 const flash = require('connect-flash');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const passport = require('passport');
 
 const db = require('./config/db');
 const home = require('./routes/index.js');
@@ -52,6 +53,13 @@ app.use(session({
     saveUninitialized: true,
     // cookie: { secure: true }
 }));
+
+//Passport Config
+require('./app/middlewares/passport')(passport);
+
+//Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Cart session middleware
 app.get('*', (req, res, next) => {
