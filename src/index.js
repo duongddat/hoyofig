@@ -11,6 +11,7 @@ const category = require('./routes/adminCategory');
 const product = require('./routes/adminProduct');
 const trash = require('./routes/trash');
 const cart = require('./routes/cart');
+const user = require('./routes/user');
 
 const app = express();
 const port = 8080;
@@ -65,6 +66,7 @@ app.use('/admin/trash', trash);
 app.use('/admin', category);
 app.use('/admin', product);
 app.use('/cart', cart);
+app.use('/user', user);
 app.use('/', home);
 
 app.listen(port, hostname, () => {

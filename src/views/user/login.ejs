@@ -1,0 +1,46 @@
+<%- include('../layout/headerDefault.ejs'); -%>
+    <div class="backgroud-video">
+        <video src="https://genshin.mihoyo.com/_nuxt/videos/3e78e80.mp4" muted autoPlay loop type="video/mp4"></video>
+        <div class="login-content">
+            <div class="bt-form-login-simple-1">
+                <h1 class="form-heading">
+                    Welcome Back, HoYoFIG
+                </h1>
+                <div class="text-wrap">
+                    <div class="text-line"></div>
+                    <p class="text">*</p>
+                    <div class="text-line"></div>
+                </div>
+                <form class="form" method="POST" action="/user/login">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="text" name="email" id="email" placeholder="Email" class="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+                        <input type="password" name="password" id="password" placeholder="Password"
+                            class="form-input" />
+                    </div>
+                    <div class="form-meta">
+                        <div class="form-remember">
+                            <input type="checkbox" name="remember-account" id="remember-account" />
+                            <label for="remember-account">
+                                Remember for 30 days
+                            </label>
+                        </div>
+                        <a href="#" class="form-link">
+                            Forgot Password
+                        </a>
+                    </div>
+                    <button type="submit" class="form-btn">
+                        Login
+                    </button>
+                </form>
+                <div class="form-option">
+                    Dont&#x27;t have an account?
+                    <a href="/user/register">Sign up for free</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('../layout/footerDefault'); -%>

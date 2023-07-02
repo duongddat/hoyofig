@@ -28,14 +28,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 //router.Method('/route', handle)
-router.get('/products', getProductpage);
-router.get('/products/add-product', getProductAdd);
-router.post('/products/add-product',
-    upload.single("image"),
-    body('title').notEmpty().withMessage('Title must have a value.'),
-    body('desc').notEmpty().withMessage('Description must have a value.'),
-    body('price').isDecimal().withMessage('Price must have a value.'),
-    postProductAdd);
+
 router.get('/products/edit-product/:id', getPorductEdit);
 router.put('/products/edit-product/:id',
     upload.single("image"),
@@ -44,6 +37,13 @@ router.put('/products/edit-product/:id',
     body('price').isDecimal().withMessage('Price must have a value.'),
     putProductEdit);
 router.delete('/products/delete-product/:id', deleteProductDestroy);
-
+router.get('/products/add-product', getProductAdd);
+router.post('/products/add-product',
+    upload.single("image"),
+    body('title').notEmpty().withMessage('Title must have a value.'),
+    body('desc').notEmpty().withMessage('Description must have a value.'),
+    body('price').isDecimal().withMessage('Price must have a value.'),
+    postProductAdd);
+router.get('/products', getProductpage);
 
 module.exports = router; //export default 

@@ -8,8 +8,8 @@ const { getHomepage,
     getDetailProduct } = require('../app/controllers/homeController');
 
 //router.Method('/route', handle)
-router.get('/:category/:id', getDetailProduct);
-router.get('/:category', getProductsOfCategory);
+router.get('/product/:category/:id', getDetailProduct);
+router.get('/product/:category', getProductsOfCategory);
 router.get('/about-us', getAboutUspage);
 router.get('/contact', getContactpage);
 router.get('/', getHomepage);
