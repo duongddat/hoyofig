@@ -6,7 +6,8 @@ const getCategorypage = (req, res) => {
     Category.find({})
         .then(categories => {
             res.render('admin/category.ejs', {
-                categories: categories
+                categories: categories,
+                user: req.user
             });
         })
         .catch(err => {
@@ -16,7 +17,9 @@ const getCategorypage = (req, res) => {
 
 //[GET] /categories/add-category
 const getCategoryAdd = (req, res, next) => {
-    res.render('admin/createCategory.ejs');
+    res.render('admin/createCategory.ejs', {
+        user: req.user
+    });
 }
 
 //[POST] /categories/add-category
@@ -30,20 +33,25 @@ const postCategoryAdd = (req, res, next) => {
             .then(cat => {
                 if (cat) {
                     req.flash('danger', 'Category slug exists, choose another.');
-                    res.render('admin/createCategory.ejs');
+                    res.render('admin/createCategory.ejs', {
+                        user: req.user
+                    });
                 } else {
                     const category = new Category({ title, slug });
                     return category.save()
                         .then(() => {
                             req.flash('success', 'Category added');
-                            res.render('admin/createCategory.ejs');
+                            res.render('admin/createCategory.ejs', {
+                                user: req.user
+                            });
                         });
                 }
             })
             .catch(next);
     } else {
         res.render('admin/createCategory.ejs', {
-            errors: errors.array()
+            errors: errors.array(),
+            user: req.user
         });
     }
 };
@@ -54,7 +62,8 @@ const getCategoryEdit = (req, res, next) => {
         .then(category => {
             res.render('admin/editCategory.ejs', {
                 id: category._id,
-                title: category.title
+                title: category.title,
+                user: req.user
             });
         })
         .catch(next);
@@ -73,8 +82,9 @@ const putCategoryEdit = (req, res, next) => {
                 if (cat) {
                     req.flash('danger', 'Category slug exists, choose another.');
                     res.render('admin/editCategory.ejs', {
-                        title: title,
                         id: id,
+                        title: title,
+                        user: req.user
                     });
                 } else {
                     return Category.updateOne({ _id: req.params.id },
@@ -87,7 +97,8 @@ const putCategoryEdit = (req, res, next) => {
                             res.render('admin/editCategory.ejs', {
                                 id: id,
                                 title: title,
-                                slug: slug
+                                slug: slug,
+                                user: req.user
                             });
                         });
                 }
@@ -98,7 +109,8 @@ const putCategoryEdit = (req, res, next) => {
             errors: errors.array(),
             id: id,
             title: title,
-            slug: slug
+            slug: slug,
+            user: req.user
         });
     }
 };

@@ -56,17 +56,16 @@ app.use(session({
 
 //Passport Config
 require('./app/middlewares/passport')(passport);
-
 //Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-//Cart session middleware
+//Cart & user session middleware
 app.get('*', (req, res, next) => {
     res.locals.cart = req.session.cart;
     res.locals.user = req.user || null;
     next();
-})
+});
 
 
 //routes

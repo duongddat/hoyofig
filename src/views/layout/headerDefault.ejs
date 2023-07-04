@@ -28,14 +28,35 @@
 </head>
 
 <body>
-    <%- messages('messages', locals) %>
-        <% if (errors) { %>
-            <% errors.forEach(function(error) { %>
-                <div class="toast alert alert-danger alert-dismissible fade show">
-                    <%= error.msg %>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <div id="toast">
+        <%- messages('messages', locals) %>
+            <% if (errors) { %>
+                <% errors.forEach(function(error) { %>
+                    <div class="toast alert alert-danger fade show">
+                        <div class="toast__body">
+                            <%= error.msg %>
+                        </div>
+                        <button type="button" class="toast__close close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                </div>
-                <% }); %>
-                    <% } %>
+                    </div>
+
+                    <% }); %>
+                        <% } %>
+    </div>
+
+    <!-- <div id="toast">
+                            <div class="toast toast__success">
+                                <div class="toast__icon">
+                                    <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                </div>
+                                Viết nhanh là .tên trong thể div nếu clas
+                                <div class="toast__body">
+                                    <h3 class="toast__title">Success</h3>
+                                    <p class="toast__msg">Chỉ cần mày đúng mọi thứ tau lo</p>
+                                </div>
+                                <div class="toast__close">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </div>
+                            </div>
+                        </div> -->

@@ -48,7 +48,8 @@ const postProductAdd = (req, res, next) => {
                     Category.find({})
                         .then((categories) => {
                             res.render('admin/createProduct.ejs', {
-                                categories: categories
+                                categories: categories,
+                                user: req.user
                             });
                         })
                 } else {
@@ -74,7 +75,8 @@ const postProductAdd = (req, res, next) => {
             .then(categories => {
                 res.render('admin/createProduct.ejs', {
                     errors: errors.array(),
-                    categories: categories
+                    categories: categories,
+                    user: req.user
                 });
             })
             .catch(next);
@@ -160,7 +162,8 @@ const putProductEdit = (req, res, next) => {
                     category: category,
                     categories: categories,
                     price: price,
-                    image: currentImage
+                    image: currentImage,
+                    user: req.user,
                 });
             })
             .catch(next);
@@ -182,7 +185,7 @@ const deleteProductTrash = (req, res, next) => {
     const productDeleteOne = Product.deleteOne({ _id: req.params.id });
 
     Promise.all([productFind, productDeleteOne])
-        .then(([product]) => {
+        .then(([product, deleteProduct]) => {
             if (product.image !== '') {
                 try {
                     fs.unlinkSync("./src/public/img/" + product.image);
