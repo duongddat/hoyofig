@@ -7,20 +7,20 @@
             <i class="fa-solid fa-circle-chevron-left"></i>
             Back to manage products page
         </a>
-        <table class="table table-hover alignmiddle">
-            <thead>
-                <tr class="home">
-                    <th scope="col">#</th>
-                    <th scope="col">Product</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Product Image</th>
-                    <th scope="col">Restore</th>
-                    <th scope="col">Destroy</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% if( products.length> 0 ) { %>
+        <% if( products.length> 0 ) { %>
+            <table class="table table-hover alignmiddle">
+                <thead>
+                    <tr class="home">
+                        <th scope="col">#</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Product Image</th>
+                        <th scope="col">Restore</th>
+                        <th scope="col">Destroy</th>
+                    </tr>
+                </thead>
+                <tbody>
                     <% products.map((product, i)=> { %>
                         <tr>
                             <td>
@@ -48,21 +48,18 @@
                             </td>
                         </tr>
                         <%})%>
-                            <% } else { %>
-                                <tr>
-                                    <td colspan="7" class="text-center">
-                                        <div class="d-flex flex-column none-item">
-                                            <img src='https://www.hoyolab.com/_nuxt/img/56a30a4.png' alt='' />
-                                            <span>Your trash have not any products yet~</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <%}%>
-            </tbody>
-        </table>
-        <div class="footer-table">
-            <h5>That's all~</h5>
-        </div>
+
+                </tbody>
+            </table>
+            <% } else { %>
+                <div class="d-flex flex-column none-item">
+                    <img src='https://www.hoyolab.com/_nuxt/img/56a30a4.png' alt='' />
+                    <span>Your trash have not any products yet~</span>
+                </div>
+                <%}%>
+                    <div class="footer-table">
+                        <h5>That's all~</h5>
+                    </div>
     </div>
 
     <!-- Config delete product -->

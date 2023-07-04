@@ -181,11 +181,11 @@ const deleteProductDestroy = (req, res, next) => {
 
 //[DELETE] /admin/trash/delete-product/:id
 const deleteProductTrash = (req, res, next) => {
-    const productFind = Product.findById(req.params.id);
+    const productFind = Product.findOneWithDeleted({ _id: req.params.id, deleted: true });
     const productDeleteOne = Product.deleteOne({ _id: req.params.id });
 
     Promise.all([productFind, productDeleteOne])
-        .then(([product, deleteProduct]) => {
+        .then(([product]) => {
             if (product.image !== '') {
                 try {
                     fs.unlinkSync("./src/public/img/" + product.image);
