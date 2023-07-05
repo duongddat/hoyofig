@@ -8,11 +8,21 @@ const getHomepage = (req, res, next) => {
     const getCategory = Category.find({});
     const getProduct = Product.find({});
 
+    //Pagination
+    const page = parseInt(req.query.page) || 1; // n
+    const perPage = 8; //x
+
+
+    const start = (page - 1) * perPage;
+    const end = page * perPage;
+
     Promise.all([getCategory, getProduct])
         .then(([categories, products]) => {
+            const size = Math.ceil(products.length / perPage);
             res.render('home.ejs', {
                 categories,
-                products,
+                products: products.slice(start, end),
+                size,
                 helper
             });
         })
@@ -24,11 +34,21 @@ const getProductsOfCategory = (req, res, next) => {
     const getCategory = Category.find({});
     const getProduct = Product.find({ category: req.params.category });
 
+    //Pagination
+    const page = parseInt(req.query.page) || 1; // n
+    const perPage = 8; //x
+
+
+    const start = (page - 1) * perPage;
+    const end = page * perPage;
+
     Promise.all([getCategory, getProduct])
         .then(([categories, products]) => {
+            const size = Math.ceil(products.length / perPage);
             res.render('home.ejs', {
                 categories,
-                products,
+                products: products.slice(start, end),
+                size,
                 helper
             });
         })
@@ -50,7 +70,7 @@ const getDetailProduct = (req, res, next) => {
 
 
 const getAboutUspage = (req, res) => {
-    res.send('About page');
+    res.render('aboutUs.ejs');
 }
 
 const getContactpage = (req, res) => {
