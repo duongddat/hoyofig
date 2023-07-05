@@ -7,39 +7,41 @@
             <i class="fa-solid fa-circle-plus"></i>
             Add a category
         </a>
-        <table class="table table-hover">
-            <thead>
-                <tr class="home">
-                    <th scope="col">Category</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% if( categories.length> 0 ) { %>
-                    <% categories.map(category=> { %>
-                        <tr>
-                            <td>
-                                <%= category.title %>
-                            </td>
-                            <td><a href="/admin/categories/edit-category/<%= category._id %>">Edit</a></td>
-                            <td><a class="confirm-deletion" data-id="<%=category._id%>" data-toggle="modal"
-                                    data-target="#delete-category-modal" href="">Delete</a>
-                            </td>
-                        </tr>
-                        <%})%>
-                            <% } else { %>
-                                <tr>
-                                    <td colspan="3" class="text-center">
-                                        <div class="d-flex flex-column none-item">
-                                            <img src='https://www.hoyolab.com/_nuxt/img/56a30a4.png' alt='' />
-                                            <span>You have not posted any categories yet~</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <%}%>
-            </tbody>
-        </table>
+        <div class="scrollme">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="home">
+                        <th scope="col">Category</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if( categories.length> 0 ) { %>
+                        <% categories.map(category=> { %>
+                            <tr>
+                                <td>
+                                    <%= category.title %>
+                                </td>
+                                <td><a href="/admin/categories/edit-category/<%= category._id %>">Edit</a></td>
+                                <td><a class="confirm-deletion" data-id="<%=category._id%>" data-toggle="modal"
+                                        data-target="#delete-category-modal" href="">Delete</a>
+                                </td>
+                            </tr>
+                            <%})%>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="3" class="text-center">
+                                            <div class="d-flex flex-column none-item">
+                                                <img src='https://www.hoyolab.com/_nuxt/img/56a30a4.png' alt='' />
+                                                <span>You have not posted any categories yet~</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                </tbody>
+            </table>
+        </div>
         <div class="footer-table">
             <h5>That's all~</h5>
         </div>

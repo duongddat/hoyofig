@@ -8,49 +8,51 @@
             Back to manage products page
         </a>
         <% if( products.length> 0 ) { %>
-            <table class="table table-hover alignmiddle">
-                <thead>
-                    <tr class="home">
-                        <th scope="col">#</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Product Image</th>
-                        <th scope="col">Restore</th>
-                        <th scope="col">Destroy</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% products.map((product, i)=> { %>
-                        <tr>
-                            <td>
-                                <%=i%>
-                            </td>
-                            <td>
-                                <%= product.title %>
-                            </td>
-                            <td>
-                                $<%= parseFloat(product.price).toFixed(2) %>
-                            </td>
-                            <td>
-                                <%= product.category %>
-                            </td>
-                            <td>
-                                <% if (product.image=="" ) { %>
-                                    <img class="image" src="/img/none-image.jpg">
-                                    <% } else {%>
-                                        <img class="image" src="/img/<%= product.image %>">
-                                        <% }%>
-                            </td>
-                            <td><a class="btn-restored" href="" data-id="<%=product._id%>">Restore</a></td>
-                            <td><a class="confirm-deletion" data-id="<%=product._id%>" data-toggle="modal"
-                                    data-target="#delete-product-modal" href="">Destroy</a>
-                            </td>
+            <div class="scrollme">
+                <table class="table table-hover alignmiddle">
+                    <thead>
+                        <tr class="home">
+                            <th scope="col">#</th>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Product Image</th>
+                            <th scope="col">Restore</th>
+                            <th scope="col">Destroy</th>
                         </tr>
-                        <%})%>
+                    </thead>
+                    <tbody>
+                        <% products.map((product, i)=> { %>
+                            <tr>
+                                <td>
+                                    <%=i%>
+                                </td>
+                                <td>
+                                    <%= product.title %>
+                                </td>
+                                <td>
+                                    $<%= parseFloat(product.price).toFixed(2) %>
+                                </td>
+                                <td>
+                                    <%= product.category %>
+                                </td>
+                                <td>
+                                    <% if (product.image=="" ) { %>
+                                        <img class="image" src="/img/none-image.jpg">
+                                        <% } else {%>
+                                            <img class="image" src="/img/<%= product.image %>">
+                                            <% }%>
+                                </td>
+                                <td><a class="btn-restored" href="" data-id="<%=product._id%>">Restore</a></td>
+                                <td><a class="confirm-deletion" data-id="<%=product._id%>" data-toggle="modal"
+                                        data-target="#delete-product-modal" href="">Destroy</a>
+                                </td>
+                            </tr>
+                            <%})%>
 
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
             <% } else { %>
                 <div class="d-flex flex-column none-item">
                     <img src='https://www.hoyolab.com/_nuxt/img/56a30a4.png' alt='' />

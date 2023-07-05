@@ -1,3 +1,4 @@
+// Tablet and Mobile
 @media (max-width: 1023px) {
   .col-xs-none {
     display: none;
@@ -44,5 +45,11 @@
     -webkit-tap-highlight-color: transparent;
     padding: 0 6px;
     border-radius: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .scrollme {
+    overflow-x: auto;
   }
 }

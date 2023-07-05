@@ -45,5 +45,10 @@
     border-radius: 4px;
   }
 }
+@media (max-width: 600px) {
+  .scrollme {
+    overflow-x: auto;
+  }
+}
 
 /*# sourceMappingURL=responsive.css.map */

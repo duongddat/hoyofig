@@ -17,59 +17,61 @@
                     <%}%>
             </a>
         </div>
-        <table class="table table-hover alignmiddle">
-            <thead>
-                <tr class="home">
-                    <th scope="col">#</th>
-                    <th scope="col">Product</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Product Image</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% if( products.length> 0 ) { %>
-                    <% products.map((product, i)=> { %>
-                        <tr>
-                            <td>
-                                <%=i + 1%>
-                            </td>
-                            <td>
-                                <%= product.title %>
-                            </td>
-                            <td>
-                                $<%= parseFloat(product.price).toFixed(2) %>
-                            </td>
-                            <td>
-                                <%= product.category %>
-                            </td>
-                            <td>
-                                <% if (product.image=="" ) { %>
-                                    <img class="image" src="/img/none-image.jpg">
-                                    <% } else {%>
-                                        <img class="image" src="/img/<%= product.image %>">
-                                        <% }%>
-                            </td>
-                            <td><a href="/admin/products/edit-product/<%= product._id %>">Edit</a></td>
-                            <td><a class="confirm-deletion" data-id="<%=product._id%>" data-toggle="modal"
-                                    data-target="#delete-product-modal" href="">Delete</a>
-                            </td>
-                        </tr>
-                        <%})%>
-                            <% } else { %>
-                                <tr>
-                                    <td colspan="7" class="text-center">
-                                        <div class="d-flex flex-column none-item">
-                                            <img src='https://www.hoyolab.com/_nuxt/img/56a30a4.png' alt='' />
-                                            <span>You have not posted any products yet~</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <%}%>
-            </tbody>
-        </table>
+        <div class="scrollme">
+            <table class="table table-hover alignmiddle">
+                <thead>
+                    <tr class="home">
+                        <th scope="col">#</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Product Image</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if( products.length> 0 ) { %>
+                        <% products.map((product, i)=> { %>
+                            <tr>
+                                <td>
+                                    <%=i + 1%>
+                                </td>
+                                <td>
+                                    <%= product.title %>
+                                </td>
+                                <td>
+                                    $<%= parseFloat(product.price).toFixed(2) %>
+                                </td>
+                                <td>
+                                    <%= product.category %>
+                                </td>
+                                <td>
+                                    <% if (product.image=="" ) { %>
+                                        <img class="image" src="/img/none-image.jpg">
+                                        <% } else {%>
+                                            <img class="image" src="/img/<%= product.image %>">
+                                            <% }%>
+                                </td>
+                                <td><a href="/admin/products/edit-product/<%= product._id %>">Edit</a></td>
+                                <td><a class="confirm-deletion" data-id="<%=product._id%>" data-toggle="modal"
+                                        data-target="#delete-product-modal" href="">Delete</a>
+                                </td>
+                            </tr>
+                            <%})%>
+                                <% } else { %>
+                                    <tr>
+                                        <td colspan="7" class="text-center">
+                                            <div class="d-flex flex-column none-item">
+                                                <img src='https://www.hoyolab.com/_nuxt/img/56a30a4.png' alt='' />
+                                                <span>You have not posted any products yet~</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                </tbody>
+            </table>
+        </div>
         <div class="footer-table">
             <h5>That's all~</h5>
         </div>
