@@ -1,3 +1,16 @@
+<div class="cart-tablet">
+    <div class="container-cart">
+        <a class="nav-link font cart" href="/cart/checkout">
+            <i class="fas fa-cart-shopping"></i>
+            <%if (typeof cart !=="undefined" ) {%>
+                <span class="notification">
+                    <%= cart.length %>
+                </span>
+                <%}%>
+
+        </a>
+    </div>
+</div>
 <div class="fui-footer-3">
     <div class="footer-category-wrap  row">
         <div class="col-sm-6 col-lg-3 align-items-center">

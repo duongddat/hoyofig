@@ -346,6 +346,22 @@ table.alignmiddle td {
   }
 }
 
+.cart-tablet {
+  display: none;
+  position: fixed;
+  right: 15px;
+  bottom: 10px;
+  .container-cart {
+    padding: 10px 5px;
+    border-radius: 50%;
+    border: 1px solid #657ef8;
+    background-color: #fff;
+    .cart .notification {
+      right: 3px;
+    }
+  }
+}
+
 // ============================================== Footer ===========================================
 .fui-footer-3 {
   padding: 40px 32px 20px;

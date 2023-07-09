@@ -46,10 +46,22 @@
     padding: 0 6px;
     border-radius: 4px;
   }
+
+  .tablet-none {
+    display: none;
+  }
+  .cart-tablet {
+    display: block;
+  }
 }
 
 @media (max-width: 600px) {
   .scrollme {
     overflow-x: auto;
+  }
+
+  .product-sale {
+    flex-wrap: wrap;
+    gap: 15px;
   }
 }

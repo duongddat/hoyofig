@@ -326,6 +326,22 @@ table.alignmiddle td {
   font-weight: 400;
 }
 
+.cart-tablet {
+  display: none;
+  position: fixed;
+  right: 15px;
+  bottom: 10px;
+}
+.cart-tablet .container-cart {
+  padding: 10px 5px;
+  border-radius: 50%;
+  border: 1px solid #657ef8;
+  background-color: #fff;
+}
+.cart-tablet .container-cart .cart .notification {
+  right: 3px;
+}
+
 .fui-footer-3 {
   padding: 40px 32px 20px;
   background-color: #fff;
