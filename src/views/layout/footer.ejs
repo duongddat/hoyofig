@@ -4,7 +4,11 @@
             <i class="fas fa-cart-shopping"></i>
             <%if (typeof cart !=="undefined" ) {%>
                 <span class="notification">
-                    <%= cart.length %>
+                    <% var total=0; %>
+                        <% cart.forEach(function(product){ %>
+                            <% total+=parseInt(product.qty) %>
+                                <% }); %>
+                                    <%= total %>
                 </span>
                 <%}%>
 

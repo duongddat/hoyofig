@@ -17,9 +17,9 @@
                             <div class="cart-row">
                                 <p class="title-number-cart">
                                     You have <strong>
-                                        <%=cart.length%>
+                                        <%=helper.countProducts(cart)%>
                                     </strong>
-                                    in your cart
+                                    products in your cart
                                 </p>
                                 <div class="table-cart">
                                     <% cart.map(function(product){ %>

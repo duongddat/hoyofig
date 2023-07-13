@@ -14,6 +14,11 @@ const helper = {
         let total = 0;
         products.forEach(product => total += (product.price * product.qty))
         return parseFloat(total).toFixed(2);
+    },
+    countProducts: function (products) {
+        let total = 0;
+        products.forEach(product => total += product.qty);
+        return total;
     }
 };
 
