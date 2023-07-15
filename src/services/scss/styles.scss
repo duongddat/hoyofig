@@ -405,6 +405,174 @@
   }
 }
 
+//================Cart header preview ===========================
+.cart-wrap {
+  position: relative;
+  display: inline-block;
+  padding: 0 8px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover .header__cart-list {
+    display: block;
+  }
+
+  .header__cart-list {
+    position: absolute;
+    top: calc(100% + 2px);
+    right: -3.5px;
+    background-color: #fff;
+    width: 280px;
+    border-radius: 6px;
+    padding: 18px 0;
+    box-shadow: 0 1px 3.125rem 0 rgba(0, 0, 0, 0.2);
+    display: none;
+    animation: fadeIn ease-in 0.3s;
+    cursor: default;
+    z-index: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 10px;
+      top: -25px;
+      border-width: 16px 20px;
+      border-style: solid;
+      border-color: transparent transparent #fff transparent;
+      cursor: pointer;
+    }
+
+    // ==== No item
+    .header__cart-no-cart-img,
+    .header__cart-list-no-cart-msg {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .header__cart-no-cart-img {
+      padding-top: 20px;
+      width: 54%;
+    }
+    .header__cart-list-no-cart-msg {
+      text-align: center;
+      color: rgba(0, 0, 0, 0.45);
+      line-height: 16px;
+      font-size: 14px;
+    }
+
+    //======= Items cart
+    .header__cart-heading {
+      text-align: left;
+      margin: 8px 0 8px 12px;
+      font-size: 14px;
+      color: #999;
+      font-weight: 400;
+    }
+    .header__cart-list-item {
+      padding-left: 0;
+      list-style: none;
+      max-height: 30vh;
+      overflow-y: auto;
+
+      .header__cart-item {
+        display: flex;
+        align-items: center;
+
+        &:hover {
+          background-color: #f8f8f8;
+        }
+        .header-cart-item-img {
+          width: 42px;
+          height: 42px;
+          margin: 12px;
+
+          img {
+            width: 100%;
+            border: 1px solid #e8e8e8;
+            object-fit: cover;
+          }
+        }
+        .header__cart-item-info {
+          width: 100%;
+          margin-right: 12px;
+
+          .header__cart-item-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+
+            .header__cart-item-name {
+              font-size: 12px;
+              overflow: hidden;
+              font-weight: 700;
+              color: #000;
+              margin: 0;
+              flex: 1;
+              padding-right: 16px;
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-box-clamp: 2;
+              text-align: left;
+            }
+            .header__cart-item-price {
+              font-size: 12px;
+              font-weight: 700;
+              color: red;
+            }
+            .header__cart-item-multiply {
+              font-size: 8px;
+              margin: 0 4px;
+              color: #757575;
+            }
+            .header__cart-item-qnt {
+              color: #757575;
+              font-size: 10px;
+            }
+          }
+          .header__cart-item-body {
+            display: flex;
+            justify-content: space-between;
+
+            .header__cart-item-description {
+              color: #757575;
+              font-size: 12px;
+              font-weight: 300;
+            }
+            .header__cart-item-remove {
+              font-size: 13px;
+              &:hover {
+                color: red;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+    .header__cart-view-cart {
+      color: #fff;
+      background-color: #ff0000;
+      float: right;
+      margin: 12px 12px 12px 0;
+      &:hover {
+        color: #ff0000;
+        background-color: #fff;
+        border: 1px solid #ff0000;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 // ====================================== About us ==========================================
 .fui-testimonial-1 {
   margin-top: 30px;
