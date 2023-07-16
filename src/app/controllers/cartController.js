@@ -95,12 +95,19 @@ const postCartUpdate = (req, res, next) => {
     res.redirect('/cart/checkout');
 }
 
-// [GET] /cart/delete
+// [GET] /cart/delete/:id
 const getCartDelete = (req, res, next) => {
     const cart = req.session.cart;
     const id = req.params.id;
 
-
+    for (var i = 0; i < cart.length; i++) {
+        if (cart[i].id === id) {
+            cart.splice(i, 1);
+            if (cart.length == 0)
+                delete req.session.cart;
+        }
+    }
+    res.redirect('back');
 }
 
 // [GET] /cart/clear
@@ -116,5 +123,6 @@ module.exports = {
     getCartAdd,
     getCheckout,
     postCartUpdate,
+    getCartDelete,
     getCartClear,
 }
