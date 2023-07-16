@@ -52,10 +52,21 @@
                             <% } %>
                 </p>
             </div>
-            <div class="form-group">
+
+            <div class="fui-upload-img-list form-group mb-4">
                 <label for="">Upload Image</label>
-                <input type="file" class="form-control" name="image" id="image">
-                <img src="/img/none-image.jpg" class="image mt-4" id="imgPreview" alt="">
+                <div class="image-wrap">
+                    <div class="image-item upload-box">
+                        <div class="wrapImgResize imgSquare">
+                            <label for="image">
+                                <input type="file" id="image" name="image" hidden />
+                                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+                                <h3>Upload</h3>
+                            </label>
+                        </div>
+                    </div>
+                    <img src="/img/none-image.jpg" class="image" id="imgPreview" alt="">
+                </div>
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
         </form>

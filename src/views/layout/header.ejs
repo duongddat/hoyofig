@@ -73,10 +73,10 @@
                                     <img src="https://www.hoyolab.com/_nuxt/img/56a30a4.png" alt=""
                                         class="header__cart-no-cart-img">
                                     <span class="header__cart-list-no-cart-msg">
-                                        Chưa có sản phẩm~
+                                        No products~
                                     </span>
                                     <%} else {%>
-                                        <h4 class="header__cart-heading">Sản phẩm đã thêm:</h4>
+                                        <h4 class="header__cart-heading">Product added:</h4>
                                         <ul class="header__cart-list-item">
                                             <% cart.map(function(product){ %>
                                                 <li class="header__cart-item">
@@ -102,16 +102,15 @@
                                                         </div>
                                                         <div class="header__cart-item-body">
                                                             <span class="header__cart-item-description">
-                                                                Phân loại: Hot
+                                                                Classify: Hot
                                                             </span>
-                                                            <a href="" class="header__cart-item-remove">Xóa</a>
+                                                            <a href="" class="header__cart-item-remove">Delete</a>
                                                         </div>
                                                     </div>
                                                 </li>
                                                 <%});%>
                                         </ul>
-                                        <a href="/cart/checkout" class="btn header__cart-view-cart">Xem giỏ
-                                            hàng</a>
+                                        <a href="/cart/checkout" class="btn header__cart-view-cart">View cart</a>
                                         <%}%>
                             </div>
                         </div>

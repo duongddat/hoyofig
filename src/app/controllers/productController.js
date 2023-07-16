@@ -104,7 +104,7 @@ const getPorductEdit = (req, res, next) => {
 
 }
 
-//[POST] /admin/products/edit-product/:id
+//[PUT] /admin/products/edit-product/:id
 const putProductEdit = (req, res, next) => {
     const id = req.params.id;
     const title = req.body.title;
