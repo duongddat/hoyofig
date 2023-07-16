@@ -95,6 +95,14 @@ const postCartUpdate = (req, res, next) => {
     res.redirect('/cart/checkout');
 }
 
+// [GET] /cart/delete
+const getCartDelete = (req, res, next) => {
+    const cart = req.session.cart;
+    const id = req.params.id;
+
+
+}
+
 // [GET] /cart/clear
 const getCartClear = (req, res, next) => {
     delete req.session.cart;
