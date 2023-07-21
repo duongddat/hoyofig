@@ -64,4 +64,10 @@
     flex-wrap: wrap;
     gap: 15px;
   }
+
+  .box-service_item {
+    &:not(:last-child)::before {
+      display: none !important;
+    }
+  }
 }

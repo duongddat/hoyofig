@@ -342,6 +342,50 @@ table.alignmiddle td {
   right: 3px;
 }
 
+.session-layout {
+  background-color: #fff;
+  padding: 40px 0 10px;
+  margin: 70px 0;
+}
+.session-layout .container-session {
+  max-width: 1370px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.session-layout .container-session .box-service_item {
+  margin-bottom: 30px;
+}
+.session-layout .container-session .box-service_item .box-service_innner .box-service_img {
+  margin-bottom: 14px;
+}
+.session-layout .container-session .box-service_item .box-service_innner .box-service_content h4 {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+.session-layout .container-session .box-service_item .box-service_innner .box-service_content .txt-desc {
+  font-size: 16px;
+}
+.session-layout .container-session .box-service_item .box-service_innner .box-service_content .txt-link {
+  font-size: 14px;
+  font-weight: 700;
+  padding-top: 20px;
+  display: block;
+}
+.session-layout .container-session .box-service_item:not(:last-child)::before {
+  content: "";
+  width: 1px;
+  height: 90%;
+  position: absolute;
+  top: 5%;
+  background: #f8f8f8;
+  display: block;
+  right: 0;
+}
+
 .fui-footer-3 {
   padding: 40px 32px 20px;
   background-color: #fff;
