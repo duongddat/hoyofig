@@ -95,6 +95,11 @@ table.alignmiddle td {
   max-width: 1350px !important;
 }
 
+.container .sticky-form {
+  position: sticky;
+  top: 95px;
+}
+
 .font {
   font-weight: bold;
 }
@@ -167,6 +172,11 @@ table.alignmiddle td {
   text-align: center;
   padding: 15px;
   color: #999;
+}
+
+.form-container .sticky-total {
+  position: sticky;
+  top: 95px;
 }
 
 .not-product-title {
