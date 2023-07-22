@@ -258,6 +258,11 @@
   padding-top: 5px;
   text-align: center;
 }
+.order-summary-block .summary-action .txt-danger {
+  margin-top: 8px;
+  display: block;
+  color: red;
+}
 .order-summary-block .summary-action p {
   position: relative;
   font-size: 14px;
@@ -290,6 +295,10 @@
   font-weight: bold;
   border-radius: 0;
   margin-top: 12px;
+}
+.order-summary-block .summary-action .disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .note-none {

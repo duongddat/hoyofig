@@ -299,6 +299,12 @@
     padding-top: 5px;
     text-align: center;
 
+    .txt-danger {
+      margin-top: 8px;
+      display: block;
+      color: red;
+    }
+
     p {
       position: relative;
       font-size: 14px;
@@ -333,6 +339,11 @@
       font-weight: bold;
       border-radius: 0;
       margin-top: 12px;
+    }
+
+    .disabled {
+      opacity: 0.5;
+      pointer-events: none;
     }
   }
 }

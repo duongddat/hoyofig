@@ -50,12 +50,15 @@ const getCartAdd = (req, res, next) => {
 
 //[GET] /cart/checkout
 const getCheckout = (req, res, next) => {
+    const loggedIn = req.isAuthenticated() ? true : false;
+
     if (req.session.cart && req.session.cart.length == 0) {
         delete req.session.cart;
         res.redirect('/cart/checkout');
     } else {
         res.render('checkOut.ejs', {
             cart: req.session.cart,
+            loggedIn: loggedIn,
             helper: helper
         });
     }

@@ -89,7 +89,12 @@
                             <p>
                                 Bạn có thể hoàn trả sản phẩm khi đã thanh toán (lý do hoàn trả).
                             </p>
-                            <a href="/cart/clear" class="checkout-btn">Pay</a>
+                            <a href="/cart/clear" class="checkout-btn <%= !loggedIn ? 'disabled' : ''%>">Pay</a>
+                            <% if(!loggedIn) { %>
+                                <p class="txt-danger">
+                                    *Đề nghị đăng nhập để thực hiện thanh toán!!!*
+                                </p>
+                                <%} %>
                         </div>
                     </div>
                 </div>
