@@ -577,6 +577,55 @@ li {
   padding-top: 100%;
 }
 
+.pagination {
+  text-align: center;
+}
+.pagination li {
+  margin: 5px;
+  box-shadow: 0 5px 25px rgba(1, 1, 1, 0.1);
+}
+.pagination li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 22px;
+}
+.pagination li a:hover {
+  color: #fff;
+}
+.pagination .previous-page,
+.pagination .next-page {
+  background: #657ef8;
+  width: 80px;
+  border-radius: 45px;
+  transition: 0.3s ease;
+}
+.pagination .previous-page span,
+.pagination .next-page span {
+  font-size: 18px;
+}
+.pagination .previous-page:hover {
+  transform: translateX(-5px);
+}
+.pagination .next-page:hover {
+  transform: translateX(5px);
+}
+.pagination .page-link {
+  background-color: transparent;
+  border: none;
+}
+.pagination .current-page {
+  background-color: #ccc;
+  width: 40px;
+  border-radius: 50%;
+}
+.pagination .actived {
+  background-color: #657ef8;
+}
+.pagination .disable {
+  background-color: #ccc;
+}
+
 .fui-testimonial-1 {
   margin-top: 30px;
   padding-top: 33px;
