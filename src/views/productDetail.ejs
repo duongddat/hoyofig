@@ -6,8 +6,13 @@
             </div>
             <div class="row product-detail">
                 <div class="col-md-12 col-lg-6 zoom">
-                    <img class="product-img" src="/img/<%= product.image %>" alt="Product image">
-                    <img id="imgZoom" class="product-img" src="/img/<%= product.image %>" alt="Product image">
+                    <% if (product.image) {%>
+                        <img class="product-img" src="/img/<%= product.image %>" alt="Product image">
+                        <img id="imgZoom" class="product-img" src="/img/<%= product.image %>" alt="Product image">
+                        <%} else {%>
+                            <img class="product-img" src="/img/none-image.jpg" alt="Product image">
+                            <img id="imgZoom" class="product-img" src="/img/none-image.jpg" alt="Product image">
+                            <%}%>
                 </div>
                 <div class="col-md-12 col-lg-6">
                     <div class="product-desc">
