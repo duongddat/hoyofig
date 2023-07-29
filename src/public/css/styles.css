@@ -1050,7 +1050,8 @@ li {
   border-radius: 50%;
   right: 5%;
   top: 0%;
-  background-image: linear-gradient(var(--rotate), #9a3bba, #fe4e56);
+  background-image: linear-gradient(var(--rotate), #e1e7ff, #9a3bba);
+  animation: object1 5s linear infinite;
 }
 .wrapper-content::after {
   position: absolute;
@@ -1060,7 +1061,29 @@ li {
   border-radius: 50%;
   left: 10%;
   bottom: 12%;
-  background-image: linear-gradient(var(--rotate), #9a3bba, #fe4e56);
+  background-image: linear-gradient(var(--rotate), #657ef8, #e1e7ff);
+  animation: object2 5s linear infinite;
+}
+
+@keyframes object1 {
+  50% {
+    right: 7%;
+    top: 10%;
+  }
+  75% {
+    right: 15%;
+    top: 7%;
+  }
+}
+@keyframes object2 {
+  50% {
+    left: 5%;
+    bottom: 0%;
+  }
+  75% {
+    left: 0%;
+    bottom: 20%;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
