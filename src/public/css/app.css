@@ -341,6 +341,7 @@ table.alignmiddle td {
   position: fixed;
   right: 15px;
   bottom: 10px;
+  z-index: 5;
 }
 .cart-tablet .container-cart {
   padding: 10px 5px;
