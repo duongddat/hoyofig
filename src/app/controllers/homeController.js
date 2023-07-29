@@ -74,7 +74,7 @@ const getAboutUspage = (req, res) => {
 }
 
 const getContactpage = (req, res) => {
-    res.send('Contact page');
+    res.render('contactUs.ejs');
 }
 
 module.exports = {

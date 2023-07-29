@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Sacramento&display=swap");
+
 .input-quantity {
   display: flex;
   margin-right: 24px;
@@ -992,5 +994,195 @@ li {
   }
   100% {
     transform: rotate(360deg) translate(-10px) rotate(-360deg);
+  }
+}
+
+//======================================= Contact us ========================================
+@property --rotate {
+  initial-value: 0deg;
+  inherits: false;
+  syntax: "<angle>";
+}
+
+.contact-card {
+  position: relative;
+  background: #2a2f42;
+  width: 300px;
+  height: 450px;
+  border-radius: 5px;
+  margin: 25px 30px;
+
+  &::before,
+  &::after {
+    position: absolute;
+    width: 104%;
+    height: 102%;
+    content: "";
+    background-image: linear-gradient(var(--rotate), #9a3bba, #fe4e56);
+    border-radius: 6px;
+    z-index: -1;
+    left: -2%;
+    top: -1%;
+    opacity: 0;
+  }
+
+  &::after {
+    filter: blur(40px);
+  }
+
+  &:hover::before,
+  &:hover::after {
+    opacity: 1;
+    animation: spin 1.5s linear infinite;
+  }
+
+  img:nth-child(1) {
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+    width: 96%;
+    height: 96%;
+    object-fit: cover;
+    border-radius: 6px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  &:hover img:nth-child(1) {
+    opacity: 0;
+  }
+
+  img:nth-child(2) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  &:hover img:nth-child(2) {
+    opacity: 1;
+  }
+
+  .contact-content {
+    position: absolute;
+    top: 80%;
+    left: 2px;
+    color: #fff;
+    font-size: 20px;
+    rotate: -10deg;
+    text-shadow: 0 0 10px #fe4e56;
+    transition: 0.5s;
+    font-family: "Sacramento", cursive;
+  }
+
+  &:hover .contact-content {
+    color: #fbff22;
+    text-shadow: #9a3bba;
+  }
+
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+
+.wrapper-content {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 20px 15px 20px 0;
+
+  .topline {
+    display: block;
+    position: relative;
+    z-index: 5;
+    font-size: 35px;
+    letter-spacing: 5px;
+    color: #3d535f;
+
+    &::after {
+      position: absolute;
+      content: "";
+      height: 4px;
+      width: 45px;
+      bottom: 10px;
+      background-color: #657ef8;
+    }
+  }
+
+  h1 {
+    display: block;
+    font-size: 45px;
+    font-weight: 900;
+    color: #3d535f;
+    position: relative;
+    z-index: 5;
+  }
+
+  .multiText {
+    position: relative;
+    z-index: 5;
+    color: #657ef8;
+    text-transform: capitalize;
+  }
+
+  p {
+    display: block;
+    width: 90%;
+    font-size: 16px;
+    color: #3d535f;
+    position: relative;
+    z-index: 5;
+  }
+
+  .buttons {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 5;
+
+    .btn-contact {
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+      text-transform: capitalize;
+      letter-spacing: 2px;
+
+      &:hover {
+        background-color: #657ef8;
+        color: #e1e7ff;
+      }
+    }
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    right: 5%;
+    top: 0%;
+    background-image: linear-gradient(var(--rotate), #9a3bba, #fe4e56);
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    left: 10%;
+    bottom: 12%;
+    background-image: linear-gradient(var(--rotate), #9a3bba, #fe4e56);
   }
 }
