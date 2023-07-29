@@ -81,18 +81,18 @@
                         </div>
                         <div class="summary-action">
                             <p>
-                                Phí vận chuyển sẽ được tính ở trang thanh toán.
+                                Shipping fee will be calculated at the checkout page.
                             </p>
                             <p>
-                                Bạn cũng có thể nhập mã giảm giá ở trang thanh toán.
+                                You can also enter the discount code at the checkout page.
                             </p>
                             <p>
-                                Bạn có thể hoàn trả sản phẩm khi đã thanh toán (lý do hoàn trả).
+                                You can return the product upon payment (return reason).
                             </p>
                             <a href="/cart/clear" class="checkout-btn <%= !loggedIn ? 'disabled' : ''%>">Pay</a>
                             <% if(!loggedIn) { %>
                                 <p class="txt-danger">
-                                    *Đề nghị đăng nhập để thực hiện thanh toán!!!*
+                                    *Please login to make payment!!!*
                                 </p>
                                 <%} %>
                         </div>
