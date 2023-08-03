@@ -656,7 +656,7 @@ li {
 }
 
 //======================================== Custom pagination =====================
-.pagination {
+.customize-pagination {
   text-align: center;
 
   li {
@@ -671,6 +671,11 @@ li {
 
       &:hover {
         color: #fff;
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
       }
     }
   }
