@@ -1133,6 +1133,7 @@ li {
     color: #3d535f;
     position: relative;
     z-index: 5;
+    padding: 5px 0;
   }
 
   .multiText {
@@ -1207,11 +1208,7 @@ li {
 
 @keyframes object2 {
   50% {
-    left: 5%;
+    left: 15%;
     bottom: 0%;
-  }
-  75% {
-    left: 0%;
-    bottom: 20%;
   }
 }
