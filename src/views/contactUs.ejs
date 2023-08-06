@@ -29,6 +29,113 @@
                 </div>
             </div>
         </div>
+        <div class="mt-5">
+            <div class="title-about">About Me.</div>
+            <div class="container-about">
+                <div id="slide">
+                    <div class="item"
+                        style="background-image:  url(https://64.media.tumblr.com/69ff6151b7aa3a1a03c1773f0f5be79e/8cebe90d1fbe22a9-f4/s1280x1920/edc16e5cefabd4858ca34a1656eaf30707adca5f.png);">
+                        <div class="content">
+                            <div class="name">Yaoshi</div>
+                            <div class="desc">
+                                "The flowers share their petals without care, waiting for their inevitable
+                                withering destiny. The birds fly high in song, moving toward their inevitable crash and
+                                death. The streams flow rapidly with life, in a direction where they inevitably run dry.
+                                Why
+                                must all things come to an end? There must be a miracle somewhere in the universe that
+                                can
+                                cure the disease known as finality."
+                            </div>
+                            <button class="btn btn-default">See more</button>
+                        </div>
+                    </div>
+                    <div class="item"
+                        style="background-image:  url(https://64.media.tumblr.com/bccc28b00f92d519427b1ded7fc0b301/69a0c16947e68f95-cb/s1280x1920/78ef192cd98f3546569530120cb8e137a11e7679.png);">
+                        <div class="content">
+                            <div class="name">Yaoshi</div>
+                            <div class="desc">
+                                "The flowers share their petals without care, waiting for their inevitable
+                                withering destiny. The birds fly high in song, moving toward their inevitable crash and
+                                death. The streams flow rapidly with life, in a direction where they inevitably run dry.
+                                Why
+                                must all things come to an end? There must be a miracle somewhere in the universe that
+                                can
+                                cure the disease known as finality."
+                            </div>
+                            <button class="btn btn-default">See more</button>
+                        </div>
+                    </div>
+                    <div class="item"
+                        style="background-image:  url(https://64.media.tumblr.com/07d612dfc2cd3b0e9199dd7ee27c6eaf/146ae41b7581530f-4b/s1280x1920/ebd2cff083998c5d8e646a60bc9bf8cdb58136e3.png);">
+                        <div class="content">
+                            <div class="name">Yaoshi</div>
+                            <div class="desc">
+                                "The flowers share their petals without care, waiting for their inevitable
+                                withering destiny. The birds fly high in song, moving toward their inevitable crash and
+                                death. The streams flow rapidly with life, in a direction where they inevitably run dry.
+                                Why
+                                must all things come to an end? There must be a miracle somewhere in the universe that
+                                can
+                                cure the disease known as finality."
+                            </div>
+                            <button class="btn btn-default">See more</button>
+                        </div>
+                    </div>
+                    <div class="item"
+                        style="background-image:  url(https://64.media.tumblr.com/f9b444b97735331707765249ae1fedfe/c1226d52fb9274e0-72/s1280x1920/95c1a4d9e16a5ccdfe71a15cea1a51916ea9c9bd.png);">
+                        <div class="content">
+                            <div class="name">Yaoshi</div>
+                            <div class="desc">
+                                "The flowers share their petals without care, waiting for their inevitable
+                                withering destiny. The birds fly high in song, moving toward their inevitable crash and
+                                death. The streams flow rapidly with life, in a direction where they inevitably run dry.
+                                Why
+                                must all things come to an end? There must be a miracle somewhere in the universe that
+                                can
+                                cure the disease known as finality."
+                            </div>
+                            <button class="btn btn-default">See more</button>
+                        </div>
+                    </div>
+                    <div class="item"
+                        style="background-image:  url(https://64.media.tumblr.com/d87f14cc136d13ed4b8dc5e0a8600330/4348d835c042bab5-00/s1280x1920/102f12d517c7424b653af7b27c50e055dd964254.png);">
+                        <div class="content">
+                            <div class="name">Yaoshi</div>
+                            <div class="desc">
+                                "The flowers share their petals without care, waiting for their inevitable
+                                withering destiny. The birds fly high in song, moving toward their inevitable crash and
+                                death. The streams flow rapidly with life, in a direction where they inevitably run dry.
+                                Why
+                                must all things come to an end? There must be a miracle somewhere in the universe that
+                                can
+                                cure the disease known as finality."
+                            </div>
+                            <button class="btn btn-default">See more</button>
+                        </div>
+                    </div>
+                    <div class="item"
+                        style="background-image:  url(https://64.media.tumblr.com/69ff6151b7aa3a1a03c1773f0f5be79e/8cebe90d1fbe22a9-f4/s1280x1920/edc16e5cefabd4858ca34a1656eaf30707adca5f.png);">
+                        <div class="content">
+                            <div class="name">Yaoshi</div>
+                            <div class="desc">
+                                "The flowers share their petals without care, waiting for their inevitable
+                                withering destiny. The birds fly high in song, moving toward their inevitable crash and
+                                death. The streams flow rapidly with life, in a direction where they inevitably run dry.
+                                Why
+                                must all things come to an end? There must be a miracle somewhere in the universe that
+                                can
+                                cure the disease known as finality."
+                            </div>
+                            <button class="btn btn-default">See more</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="prev"><i class="fa-solid fa-angle-left"></i></button>
+                    <button id="next"><i class="fa-solid fa-angle-right"></i></button>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>
@@ -38,6 +145,20 @@
             typeSpeed: 100,
             backSpeed: 80,
             backDelay: 1500,
-        })
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            $('#next').click(function () {
+                let lists = $('.item');
+                $('#slide').append(lists[0]);
+            })
+
+            $('#prev').click(function () {
+                let lists = $('.item');
+                $('#slide').prepend(lists[lists.length - 1]);
+            })
+
+            setInterval(() => { $('#next').click() }, 5000);
+        });
     </script>
     <%- include('layout/footer.ejs'); -%>

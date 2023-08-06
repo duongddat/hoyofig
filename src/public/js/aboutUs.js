@@ -17,9 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 $(this).addClass("active");
             }
         });
+        refresh
     });
 
-    setInterval(function () {
+    let refresh = setInterval(function () {
         numberTabTestimonial++;
         if (numberTabTestimonial > 7) {
             numberTabTestimonial = 0;
