@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     <div class="item" style="
-            background-image: url(https://64.media.tumblr.com/69ff6151b7aa3a1a03c1773f0f5be79e/8cebe90d1fbe22a9-f4/s1280x1920/edc16e5cefabd4858ca34a1656eaf30707adca5f.png);
+            background-image: url(bg/bg1.webp);
           ">
                         <div class="content">
                             <div class="name">Yaoshi</div>
@@ -140,34 +140,6 @@
         </div>
     </div>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script>
-        var typingEffect = new Typed(".multiText", {
-            strings: ["coder", "designer", "UI/UX developer"],
-            loop: true,
-            typeSpeed: 100,
-            backSpeed: 80,
-            backDelay: 1500,
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            $("#next").click(function () {
-                let lists = $(".item");
-                $("#slide").append(lists[0]);
-            });
-
-            $("#prev").click(function () {
-                let lists = $(".item");
-                $("#slide").prepend(lists[lists.length - 1]);
-            });
-
-            setInterval(() => {
-                $("#next").click();
-            }, 5000);
-        });
-    </script>
-
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+    <script src="/js/contactUs.js"></script>
     <%- include('layout/footer.ejs'); -%>
