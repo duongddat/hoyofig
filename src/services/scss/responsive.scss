@@ -70,4 +70,56 @@
       display: none !important;
     }
   }
+
+  //About us
+  .container-about {
+    #slide {
+      .item {
+        background-size: cover;
+        width: 80px;
+        height: 80px;
+
+        &:nth-child(3) {
+          left: 12%;
+        }
+        &:nth-child(4) {
+          left: calc(12% + 90px);
+        }
+        &:nth-child(5) {
+          left: calc(12% + 180px);
+        }
+        &:nth-child(n + 6) {
+          left: calc(12% + 270px);
+        }
+
+        .content {
+          top: 10%;
+          left: 0;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      left: 0%;
+      bottom: 7%;
+    }
+  }
+
+  @keyframes showContent1 {
+    from {
+      opacity: 0;
+      transform: translate(0, 100px);
+      filter: blur(33px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+      filter: blur(0);
+    }
+  }
 }
