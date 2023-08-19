@@ -76,27 +76,26 @@
     #slide {
       .item {
         background-size: cover;
-        width: 80px;
-        height: 80px;
+        width: 22%;
+        height: 15%;
 
         &:nth-child(3) {
-          left: 12%;
+          left: 12.899%;
         }
         &:nth-child(4) {
-          left: calc(12% + 90px);
+          left: 38.899%;
         }
         &:nth-child(5) {
-          left: calc(12% + 180px);
+          left: 64.899%;
         }
         &:nth-child(n + 6) {
-          left: calc(12% + 270px);
+          left: 100%;
         }
 
         .content {
           top: 10%;
           left: 0;
           width: 100%;
-          text-align: center;
         }
       }
     }
