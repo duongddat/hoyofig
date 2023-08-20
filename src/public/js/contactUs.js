@@ -1,5 +1,3 @@
-AOS.init()
-
 var typingEffect = new Typed(".multiText", {
     strings: ["coder", "designer", "UI/UX developer"],
     loop: true,
@@ -24,3 +22,5 @@ document.addEventListener("DOMContentLoaded", function () {
         $("#next").click();
     }, 7000);
 });
+
+AOS.init();
