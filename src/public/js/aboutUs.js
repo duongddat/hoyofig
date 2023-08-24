@@ -17,7 +17,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 $(this).addClass("active");
             }
         });
-        refresh
+        clearInterval(refresh);
+        refresh = setInterval(function () {
+            numberTabTestimonial++;
+            if (numberTabTestimonial > 7) {
+                numberTabTestimonial = 0;
+            }
+            testimoniaPersonalItems.removeClass("active");
+            testimonialBodyItems.removeClass("active");
+            testimoniaPersonalItems.eq(numberTabTestimonial).addClass("active");
+            testimonialBodyItems.eq(numberTabTestimonial).addClass("active");
+        }, 4000);
     });
 
     let refresh = setInterval(function () {

@@ -121,7 +121,7 @@
                                 </div>
                                 <%});%>
                                     <%} else {%>
-                                        <div class="form-container text-center">
+                                        <div class="w-100 text-center">
                                             <img src="https://wiki.hoyolab.com/_nuxt/img/mimo-active.a2f170b.png"
                                                 alt="Not found">
                                             <p class="not-product-title">~Product Unavailable~</p>
@@ -129,31 +129,32 @@
                                         <%}%>
 
                     </div>
-
-                    <div class="d-flex justify-content-center">
-                        <div class="pagination customize-pagination">
-                            <li class="page-item previous-page">
-                                <a href="" onfocus="handlePre(event)" aria-label="Previous" class="page-link">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    Prev
-                                </a>
-                            </li>
-                            <%for(var i=0; i < size; i++){%>
-                                <li class="page-item current-page actived">
-                                    <a class="page-link" href="?page=<%=i+ 1%>">
-                                        <%=i + 1%>
+                    <% if(size> 0) {%>
+                        <div class="d-flex justify-content-center">
+                            <div class="pagination customize-pagination">
+                                <li class="page-item previous-page">
+                                    <a href="" onfocus="handlePre(event)" aria-label="Previous" class="page-link">
+                                        <span aria-hidden="true">&laquo;</span>
+                                        Prev
                                     </a>
                                 </li>
-                                <%}%>
-                                    <li class="page-item next-page">
-                                        <a href="" onfocus="handleNext(event, '<%=size%>')" aria-label="Next"
-                                            class="page-link">
-                                            Next
-                                            <span aria-hidden="true">&raquo;</span>
+                                <%for(var i=0; i < size; i++){%>
+                                    <li class="page-item current-page actived">
+                                        <a class="page-link" href="?page=<%=i+ 1%>">
+                                            <%=i + 1%>
                                         </a>
                                     </li>
+                                    <%}%>
+                                        <li class="page-item next-page">
+                                            <a href="" onfocus="handleNext(event, '<%=size%>')" aria-label="Next"
+                                                class="page-link">
+                                                Next
+                                                <span aria-hidden="true">&raquo;</span>
+                                            </a>
+                                        </li>
+                            </div>
                         </div>
-                    </div>
+                        <%}%>
                 </div>
             </div>
         </div>
