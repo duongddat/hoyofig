@@ -25,13 +25,13 @@
                                     <% cart.map(function(product){ %>
                                         <div class="media-line-item">
                                             <div class="media-left">
-                                                <a href="/<%= product.category %>/<%= product.id %>">
+                                                <a href="/product/<%= product.category %>/<%= product.id %>">
                                                     <img class="item-image" src="<%= product.image %>" alt="">
                                                 </a>
                                             </div>
                                             <div class="media-right">
                                                 <div class="item-info">
-                                                    <a href="/<%= product.category %>/<%= product.id %>">
+                                                    <a href="/product/<%= product.category %>/<%= product.id %>">
                                                         <h3 class="item-title">
                                                             <%= product.title %>
                                                         </h3>

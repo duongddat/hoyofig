@@ -1,14 +1,14 @@
 const handlePre = (event) => {
     const currentPage = window.location.href;
+    const lastCharacter = currentPage.slice(-1);
 
-    if (currentPage.length < 29) {
+    if (!lastCharacter.match(/[0-9]/)) {
         event.target.setAttribute("href", "?page=1");
     } else {
-        const page = currentPage.slice(28, 29);
-        if (page === '1') {
+        if (lastCharacter === '1') {
             event.target.setAttribute("href", "?page=1");
         } else {
-            const newHref = "?page=" + (parseInt(page) - 1)
+            const newHref = "?page=" + (parseInt(lastCharacter) - 1)
             event.target.setAttribute("href", newHref);
         }
     }
@@ -16,15 +16,15 @@ const handlePre = (event) => {
 
 const handleNext = (event, size) => {
     const currentPage = window.location.href;
+    const lastCharacter = currentPage.slice(-1);
 
-    if (currentPage.length < 29) {
+    if (!lastCharacter.match(/[0-9]/)) {
         event.target.setAttribute("href", "?page=2");
     } else {
-        const page = currentPage.slice(28, 29);
-        if (page === size) {
+        if (lastCharacter === size) {
             event.target.setAttribute("href", "?page=" + size);
         } else {
-            const newHref = "?page=" + (parseInt(page) + 1);
+            const newHref = "?page=" + (parseInt(lastCharacter) + 1);
             event.target.setAttribute("href", newHref);
         }
     }
