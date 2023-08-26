@@ -133,7 +133,8 @@
                         <div class="d-flex justify-content-center">
                             <div class="pagination customize-pagination">
                                 <li class="page-item previous-page">
-                                    <a href="" onfocus="handlePre(event)" aria-label="Previous" class="page-link">
+                                    <a href="" onfocus="handlePre(event, '<%=page%>')" aria-label="Previous"
+                                        class="page-link">
                                         <span aria-hidden="true">&laquo;</span>
                                         Prev
                                     </a>
@@ -146,8 +147,8 @@
                                     </li>
                                     <%}%>
                                         <li class="page-item next-page">
-                                            <a href="" onfocus="handleNext(event, '<%=size%>')" aria-label="Next"
-                                                class="page-link">
+                                            <a href="" onfocus="handleNext(event,  '<%=page%>','<%=size%>')"
+                                                aria-label="Next" class="page-link">
                                                 Next
                                                 <span aria-hidden="true">&raquo;</span>
                                             </a>

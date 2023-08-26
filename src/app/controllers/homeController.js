@@ -23,6 +23,7 @@ const getHomepage = (req, res, next) => {
                 categories,
                 products: products.slice(start, end),
                 size,
+                page,
                 helper
             });
         })
@@ -49,6 +50,7 @@ const getProductsOfCategory = (req, res, next) => {
                 categories,
                 products: products.slice(start, end),
                 size,
+                page,
                 helper
             });
         })
