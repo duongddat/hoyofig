@@ -26,7 +26,7 @@ const postRegisterUser = (req, res, next) => {
             .then((user) => {
                 if (user) {
                     req.flash('danger', 'Username exists, choose another!');
-                    return res.redirect('/users/register');
+                    return res.redirect('/user/register');
                 } else {
                     bcrypt.genSalt(10)
                         .then((salt) => bcrypt.hash(password, salt))
